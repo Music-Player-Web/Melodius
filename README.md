@@ -34,7 +34,7 @@ I want to have a user-friendly admin panel where I can manage the music content 
 
 ## Authorization: 
 
-![Melodius - Authorization ](https://github.com/Music-Player-Web/melodius/assets/140065051/a55d6a9d-f37f-4e92-ae87-d3704e85cd52)
+![Melodius - Authorization ](https://github.com/Music-Player-Web/melodius/assets/140065051/a6fb753b-eb75-4f6a-b9af-9fb60678c4ca)
 
 
 ## Features :
