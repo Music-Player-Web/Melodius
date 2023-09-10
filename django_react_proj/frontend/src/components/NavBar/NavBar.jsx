@@ -16,13 +16,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TextField from '@mui/material/TextField';
 // import { Link } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import GavelIcon from '@mui/icons-material/Gavel';
-import CreateIcon from '@mui/icons-material/Create';
-import SettingsIcon from '@mui/icons-material/Settings';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import AlbumIcon from '@mui/icons-material/Album';
+import ClassIcon from '@mui/icons-material/Class';
+import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import StarIcon from '@mui/icons-material/Star';
+import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240;
@@ -180,36 +181,45 @@ export default function MiniDrawer() {
           <List>
             <React.Fragment>
 
-              <ListItemButton>
+              <ListItemButton style={{fontSize:"20px"}}>
                 {/* <Link style={{ textDecoration: "none" }} to="/"> */}
                   <ListItemIcon>
-                    <HomeIcon color="disabled" />                    
+                    <LibraryMusicIcon color="disabled" />                    
                   </ListItemIcon>
-                  Home
+                  Discover
                 {/* </Link> */}
               </ListItemButton>
               <ListItemButton>
                 {/* <Link style={{ textDecoration: "none" }} to="/bookmark"> */}
                   <ListItemIcon>
-                    <BookmarksIcon color="disabled" />
+                    <AlbumIcon color="disabled" />
                   </ListItemIcon>
-                  Bookmarks
+                  Albums 
                 {/* </Link> */}
               </ListItemButton>
               <ListItemButton>
                 {/* <Link style={{ textDecoration: "none" }} to="/userbids"> */}
                   <ListItemIcon>
-                    <LocalOfferIcon color="disabled" />
+                    <ClassIcon color="disabled" />
                   </ListItemIcon>
-                  Bids
+                  Genres
                 {/* </Link> */}
               </ListItemButton>
+              <ListItemButton style={{fontSize:"20px"}}>
+                {/* <Link style={{ textDecoration: "none" }} to="/"> */}
+                  <ListItemIcon>
+                    <LibraryBooksIcon color="disabled" />                    
+                  </ListItemIcon>
+                  Your Library
+                {/* </Link> */}
+              </ListItemButton>
+
               <ListItemButton>
                 {/* <Link style={{ textDecoration: "none" }} to="/profile"> */}
                   <ListItemIcon>
-                    <AccountCircleIcon />
+                    <PlaylistPlayIcon color="disabled"/>
                   </ListItemIcon>
-                  Profile
+                  Recent
                 {/* </Link> */}
               </ListItemButton>
 
@@ -219,9 +229,9 @@ export default function MiniDrawer() {
               
                       {/* <Link style={{ textDecoration: "none" }} to="/myauctions"> */}
                         <ListItemIcon>
-                          <GavelIcon />
+                          <SubscriptionsIcon color="disabled"/>
                         </ListItemIcon>
-                        My Auctions
+                        PlayLists
                       {/* </Link> */}
       
                   </ListItemButton>
@@ -229,27 +239,32 @@ export default function MiniDrawer() {
               
                       {/* <Link style={{ textDecoration: "none" }} to="/newpost"> */}
                         <ListItemIcon>
-                          <CreateIcon />
+                          <StarIcon color="disabled"/>
                         </ListItemIcon>
-                        New Post
+                        Favourites
                       {/* </Link> */}
    
                   </ListItemButton>
-                  <ListItemButton>
+
+                  <ListItemButton style={{fontSize:"20px"}}>
+              {/* <Link style={{ textDecoration: "none" }} to="/newpost"> */}
+                <ListItemIcon >
+                  <QueueMusicIcon color="disabled"/>
+                </ListItemIcon>
+                Your Playlists
+              {/* </Link> */}
+
+          </ListItemButton>
+          <ListItemButton>
+            
                     
-                      {/* <Link style={{ textDecoration: "none" }} to="/admin"> */}
-                        <ListItemIcon>
-                          <SettingsIcon />
-                        </ListItemIcon>
-                        Admin Page
-                      {/* </Link> */}
             
                   </ListItemButton>
                   <Divider />
                   <ListItemButton>
                     <div className="nav-button">
                       <ListItemIcon>
-                        <LogoutIcon />
+                        <LogoutIcon color="disabled"/>
                       </ListItemIcon>
                       Log Out
                     </div>
