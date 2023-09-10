@@ -29,6 +29,14 @@ I want to have a user-friendly admin panel where I can manage the music content 
 
 ## ERD Diagram : 
 
+![Melodius - ERD Diagram 1 ](https://github.com/Music-Player-Web/melodius/assets/140065051/afae6b14-4b20-427c-a3e6-980cc5db8749)
+
+
+## Authorization: 
+
+![Melodius - Authorization ](https://github.com/Music-Player-Web/melodius/assets/140065051/a55d6a9d-f37f-4e92-ae87-d3704e85cd52)
+
+
 ## Features :
 
 1. Play full audio tracks.
