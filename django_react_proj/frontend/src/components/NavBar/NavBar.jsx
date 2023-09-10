@@ -14,7 +14,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TextField from '@mui/material/TextField';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import AlbumIcon from '@mui/icons-material/Album';
 import ClassIcon from '@mui/icons-material/Class';
@@ -186,28 +186,28 @@ export default function MiniDrawer() {
             <React.Fragment>
 
               <ListItemButton style={{fontSize:"20px", color: 'white'}}>
-                {/* <Link style={{ textDecoration: "none" }} to="/"> */}
+                <Link style={{ textDecoration: "none" }} to="/"> 
                   <ListItemIcon>
                     <LibraryMusicIcon color="secondary" />                    
                   </ListItemIcon>
                   Discover
-                {/* </Link> */}
+                </Link>
               </ListItemButton>
               <ListItemButton style={{color: 'white'}}>
-                {/* <Link style={{ textDecoration: "none" }} to="/bookmark"> */}
+                <Link style={{ textDecoration: "none" }} to="/Albums">
                   <ListItemIcon>
                     <AlbumIcon color="secondary" />
                   </ListItemIcon>
                   Albums
-                {/* </Link> */}
+                </Link>
               </ListItemButton>
               <ListItemButton style={{color: 'white'}}>
-                {/* <Link style={{ textDecoration: "none" }} to="/userbids"> */}
+                <Link style={{ textDecoration: "none" }} to="/Genres">
                   <ListItemIcon>
                     <ClassIcon color="secondary" />
                   </ListItemIcon>
                   Genres
-                {/* </Link> */}
+                </Link>
               </ListItemButton>
               <ListItemButton style={{fontSize:"20px", color: 'white'}}>
                 {/* <Link style={{ textDecoration: "none" }} to="/"> */}
@@ -219,39 +219,39 @@ export default function MiniDrawer() {
               </ListItemButton>
 
               <ListItemButton style={{color: 'white'}}>
-                {/* <Link style={{ textDecoration: "none" }} to="/profile"> */}
+                <Link style={{ textDecoration: "none" }} to="/Recent">
                   <ListItemIcon>
                     <PlaylistPlayIcon color="secondary"/>
                   </ListItemIcon>
                   Recent
-                {/* </Link> */}
+                </Link>
               </ListItemButton>
 
     
                 <React.Fragment>
                   <ListItemButton style={{color: 'white'}}>
               
-                      {/* <Link style={{ textDecoration: "none" }} to="/myauctions"> */}
+                      <Link style={{ textDecoration: "none" }} to="/Playlists">
                         <ListItemIcon>
                           <SubscriptionsIcon color="secondary"/>
                         </ListItemIcon>
                         PlayLists
-                      {/* </Link> */}
+                      </Link>
       
                   </ListItemButton>
                   <ListItemButton style={{color: 'white'}}>
               
-                      {/* <Link style={{ textDecoration: "none" }} to="/newpost"> */}
+                      <Link style={{ textDecoration: "none" }} to="/Favourites">
                         <ListItemIcon>
                           <StarIcon color="secondary"/>
                         </ListItemIcon>
                         Favourites
-                      {/* </Link> */}
+                      </Link>
    
                   </ListItemButton>
 
                   <ListItemButton style={{fontSize:"20px", color: 'white'}}>
-              {/* <Link style={{ textDecoration: "none" }} to="/newpost"> */}
+              {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
                 <ListItemIcon >
                   <QueueMusicIcon color="secondary"/>
                 </ListItemIcon>
