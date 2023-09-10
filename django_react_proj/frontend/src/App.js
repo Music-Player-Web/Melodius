@@ -1,16 +1,15 @@
-import React, { Component, Fragment } from "react";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import React, { Fragment } from "react";
+import NavBar from  "./components/NavBar/NavBar";
+import Footer from  "./components/Footer/Footer";
+import SideBar from "./components/SideBar/SideBar";
 
-class App extends Component {
-  render() {
+export default function App() {
     return (
       <Fragment>
-        <Header />
-        <Home />
+         <NavBar />
+         <SideBar />
+        <Footer />
       </Fragment>
     );
   }
-}
 
-export default App;
