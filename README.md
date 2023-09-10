@@ -21,7 +21,8 @@ I want to have a user-friendly admin panel where I can manage the music content 
 4. Python
 5. Axios 
 6. CSS
-7. Bootstrap
+7. Material UI
+   
    
 ## Wireframes : 
 
