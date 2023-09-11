@@ -10,11 +10,7 @@ function Discover() {
       <div className="container">
         <h1 className="display-3">Discover!</h1>
        
-        <p>
-          <a className="btn btn-primary btn-lg" href="#" role="button">
-            Learn more »
-          </a>
-        </p>
+        
       </div>
     </div>
     <div className="container">

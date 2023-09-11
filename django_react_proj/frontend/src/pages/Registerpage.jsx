@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import AuthContext from '../context/AuthContext'
 
 
-function SignupPage() {
+function Registerpage() {
 
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
@@ -141,7 +141,7 @@ function SignupPage() {
               desphixs.com
             </a>
           </div>
-        
+          
         </footer> */}
     </>
 
@@ -149,4 +149,4 @@ function SignupPage() {
   )
 }
 
-export default SignupPage
+export default Registerpage
