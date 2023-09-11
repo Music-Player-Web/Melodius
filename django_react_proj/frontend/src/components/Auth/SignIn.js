@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../../utilities/users-service";
 
+
 class SignIn extends Component {
   state = {
     credentials: {
@@ -25,6 +26,8 @@ class SignIn extends Component {
       const user = await login(this.state.credentials);
       // Handle successful login (e.g., set user in state, redirect, etc.)
       this.props.setUser(user);
+      // Navigate to Discover page
+      this.props.onSuccess();
     } catch (error) {
       this.setState({ error: "Invalid credentials" });
     }
