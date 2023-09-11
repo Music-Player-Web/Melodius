@@ -6,7 +6,7 @@ export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <main className="AuthPage" style={{ marginLeft: "100px"}}>
+    <main className="AuthPage" style={{ marginLeft: "100px" }}>
       <div>
         <h3 onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</h3>
       </div>

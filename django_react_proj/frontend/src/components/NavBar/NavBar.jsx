@@ -24,6 +24,7 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import StarIcon from '@mui/icons-material/Star';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from 'reactstrap';
 
 const drawerWidth = 240;
 
@@ -63,7 +64,7 @@ const defaultTheme = createTheme({
     },
     typography: {
       fontFamily: "Trocchi, serif", // Set the desired font family
-      
+
     },
   },
 });
@@ -126,11 +127,11 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
-    const [searchQuery, setSearchQuery] = React.useState('');
-  
-    const handleSearchChange = (event) => {
-      setSearchQuery(event.target.value);
-    };
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -152,23 +153,29 @@ export default function MiniDrawer() {
               <MenuIcon />
             </IconButton>
             {/* <Typography variant="h6" noWrap component="div"> */}
-            <img style={{ width: "40px"}}
-            src="./images/logo.png" 
-            alt="Logo"
-            className="logo"
-            id="SideBar-logo"
-        />
-        {/* </Typography> */}
-        <TextField
-        label="Search"
-        value={searchQuery}
-        onChange={handleSearchChange}
-        InputLabelProps={{
-        style: { color: 'black'},
-      }}
-      style={{background: 'white', margin:'10px'}}
-        />
-      
+            <img style={{ width: "40px" }}
+              src="./images/logo.png"
+              alt="Logo"
+              className="logo"
+              id="SideBar-logo"
+            />
+            {/* </Typography> */}
+            <TextField
+              label="Search"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              InputLabelProps={{
+                style: { color: 'black' },
+              }}
+              style={{ background: 'white', margin: '10px' }}
+            />
+
+            <Link style={{ textDecoration: "none" }} to="/Auth">
+              <ListItemIcon>
+              </ListItemIcon>
+              login / signup
+            </Link>
+
           </Toolbar>
         </AppBar >
         <Drawer className={"moo"} variant="permanent" open={open}>
@@ -182,18 +189,18 @@ export default function MiniDrawer() {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List style={{background: '#333333'}}>
+          <List style={{ background: '#333333' }}>
             <React.Fragment>
 
-              <ListItemButton style={{fontSize:"20px", color: 'white'}}>
-                <Link style={{ textDecoration: "none" }} to="/"> 
+              <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
+                <Link style={{ textDecoration: "none" }} to="/">
                   <ListItemIcon>
-                    <LibraryMusicIcon color="secondary" />                    
+                    <LibraryMusicIcon color="secondary" />
                   </ListItemIcon>
                   Discover
                 </Link>
               </ListItemButton>
-              <ListItemButton style={{color: 'white'}}>
+              <ListItemButton style={{ color: 'white' }}>
                 <Link style={{ textDecoration: "none" }} to="/Albums">
                   <ListItemIcon>
                     <AlbumIcon color="secondary" />
@@ -201,7 +208,7 @@ export default function MiniDrawer() {
                   Albums
                 </Link>
               </ListItemButton>
-              <ListItemButton style={{color: 'white'}}>
+              <ListItemButton style={{ color: 'white' }}>
                 <Link style={{ textDecoration: "none" }} to="/Genres">
                   <ListItemIcon>
                     <ClassIcon color="secondary" />
@@ -209,70 +216,70 @@ export default function MiniDrawer() {
                   Genres
                 </Link>
               </ListItemButton>
-              <ListItemButton style={{fontSize:"20px", color: 'white'}}>
+              <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                 {/* <Link style={{ textDecoration: "none" }} to="/"> */}
-                  <ListItemIcon>
-                    <LibraryBooksIcon color="secondary" />                    
-                  </ListItemIcon>
-                  Your Library
+                <ListItemIcon>
+                  <LibraryBooksIcon color="secondary" />
+                </ListItemIcon>
+                Your Library
                 {/* </Link> */}
               </ListItemButton>
 
-              <ListItemButton style={{color: 'white'}}>
+              <ListItemButton style={{ color: 'white' }}>
                 <Link style={{ textDecoration: "none" }} to="/Recent">
                   <ListItemIcon>
-                    <PlaylistPlayIcon color="secondary"/>
+                    <PlaylistPlayIcon color="secondary" />
                   </ListItemIcon>
                   Recent
                 </Link>
               </ListItemButton>
 
-    
-                <React.Fragment>
-                  <ListItemButton style={{color: 'white'}}>
-              
-                      <Link style={{ textDecoration: "none" }} to="/Playlists">
-                        <ListItemIcon>
-                          <SubscriptionsIcon color="secondary"/>
-                        </ListItemIcon>
-                        PlayLists
-                      </Link>
-      
-                  </ListItemButton>
-                  <ListItemButton style={{color: 'white'}}>
-              
-                      <Link style={{ textDecoration: "none" }} to="/Favourites">
-                        <ListItemIcon>
-                          <StarIcon color="secondary"/>
-                        </ListItemIcon>
-                        Favourites
-                      </Link>
-   
-                  </ListItemButton>
 
-                  <ListItemButton style={{fontSize:"20px", color: 'white'}}>
-              {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
-                <ListItemIcon >
-                  <QueueMusicIcon color="secondary"/>
-                </ListItemIcon>
-                Your Playlists
-              {/* </Link> */}
+              <React.Fragment>
+                <ListItemButton style={{ color: 'white' }}>
 
-          </ListItemButton>
-          <ListItemButton>
-            
-                    
-            
-                  </ListItemButton>
-                  <Divider />
-                  <ListItemButton style={{color: 'white'}}>
-                      <ListItemIcon>
-                        <LogoutIcon color="secondary"/>
-                      </ListItemIcon>
-                      Log Out
-                  </ListItemButton>
-                </React.Fragment>
-            
+                  <Link style={{ textDecoration: "none" }} to="/Playlists">
+                    <ListItemIcon>
+                      <SubscriptionsIcon color="secondary" />
+                    </ListItemIcon>
+                    PlayLists
+                  </Link>
+
+                </ListItemButton>
+                <ListItemButton style={{ color: 'white' }}>
+
+                  <Link style={{ textDecoration: "none" }} to="/Favourites">
+                    <ListItemIcon>
+                      <StarIcon color="secondary" />
+                    </ListItemIcon>
+                    Favourites
+                  </Link>
+
+                </ListItemButton>
+
+                <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
+                  {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
+                  <ListItemIcon >
+                    <QueueMusicIcon color="secondary" />
+                  </ListItemIcon>
+                  Your Playlists
+                  {/* </Link> */}
+
+                </ListItemButton>
+                <ListItemButton>
+
+
+
+                </ListItemButton>
+                <Divider />
+                <ListItemButton style={{ color: 'white' }}>
+                  <ListItemIcon>
+                    <LogoutIcon color="secondary" />
+                  </ListItemIcon>
+                  Log Out
+                </ListItemButton>
+              </React.Fragment>
+
             </React.Fragment>
           </List>
         </Drawer>
