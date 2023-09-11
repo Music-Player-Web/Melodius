@@ -16,20 +16,15 @@ import { getUser } from './utilities/users-service';
 import Header from './components/Header';
 import Grid from '@mui/material/Grid';
 
-
 import './App.css';
 
-
-
 export default function App() {
-
   const [currentSong, setCurrentSong] = useState(null);
   const [user, setUser] = useState(getUser());
 
   const handlePlay = (song) => {
     setCurrentSong(song);
   };
-
 
   return (
     <Router>
@@ -50,15 +45,14 @@ export default function App() {
                     <Route path="/Favourites" element={<Favourites />} />
                     <Route path="/Recent" element={<Recent />} />
                     <Route path="/Genres" element={<Genres />} />
-
                   </Routes>
                 </>
               ) : (
-                <Routes>
-                  <Route path="/Auth" element={<AuthPage setUser={setUser} />} />
-
-                </Routes>
-                <AuthPage setUser={setUser} />
+                <>
+                  <Routes>
+                    <Route path="/Auth" element={<AuthPage setUser={setUser} />} />
+                  </Routes>
+                </>
               )}
             </Grid>
             <Grid xs={4}>
@@ -67,12 +61,8 @@ export default function App() {
           </Grid>
         </div>
 
-        </div>
-
+        <Footer />
       </div>
-      <Footer />
     </Router>
   );
 }
-
-
