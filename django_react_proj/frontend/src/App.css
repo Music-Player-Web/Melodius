@@ -44,3 +44,7 @@
 .moo > .MuiPaper-root {
   background-color:#333333;
 }
+
+.musicOuterContainer {
+  margin: 20px 70px;
+}

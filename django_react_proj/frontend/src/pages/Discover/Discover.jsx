@@ -1,4 +1,7 @@
 import React from "react";
+import Grid from '@mui/material/Grid';
+
+
 
 function Discover() {
   const data = {
@@ -19,21 +22,20 @@ function Discover() {
   };
 
   return (
-    <div>
-      <main role="main" style={{ marginTop: 50 }}>
-        <div className="jumbotron"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h2>NEW HIT</h2>
+      <main role="main">
+ <Grid container>
+            <Grid xs={12}>
+            <div className="jumbotron"></div>
+
+            <h2>NEW HIT</h2>
               <div style={{ width: '30%', textAlign: 'center' }}>
                 <img src={data.newHit.image} alt={data.newHit.title} style={{ width: '50%' }} />
                 <p>{data.newHit.title}</p>
                 <p>{data.newHit.artist}</p>
               </div>
-            </div>
-            <div className="col-md-12">
-              <h2>TOP ARTISTS</h2>
+            </Grid>
+            <Grid xs={12}>
+            <h2>TOP ARTISTS</h2>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                 {data.topArtists.map((artist) => (
                   <div key={artist.name} style={{ width: '30%', textAlign: 'center' }}>
@@ -42,9 +44,10 @@ function Discover() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="col-md-12">
-              <h2>RECOMMENDED TRACKS</h2>
+            </Grid>
+
+            <Grid xs={12}>
+            <h2>RECOMMENDED TRACKS</h2>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                 {data.recommendedTracks.map((track) => (
                   <div key={track.name} style={{ width: '30%', textAlign: 'center' }}>
@@ -53,12 +56,19 @@ function Discover() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
+            </Grid>
+
+          </Grid>
+
       </main>
-    </div>
   );
 }
 
 export default Discover;
+
+
+
+
+
+
+

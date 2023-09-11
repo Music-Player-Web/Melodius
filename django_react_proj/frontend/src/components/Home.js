@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   getStudents = () => {
-    axios.get("http://localhost:8000/api/users/").then(res => this.setState({ students: res.data }));
+    axios.get("http://localhost:8000/api/usersq/").then(res => this.setState({ students: res.data }));
   };
 
   getSongs = () => {
@@ -39,30 +39,18 @@ class Home extends Component {
   render() {
     const { currentSong } = this.state;
     return (
-      <Container style={{ marginTop: "20px" }}>
+      <>
+        {/* <WaveAmination /> */}
         <PlayerBox />
-        <Row>
-          {/* <Col>
-            <StudentList
-              students={this.state.students}
-              resetState={this.resetState}
-            />
-          </Col> */}
-          <Col>
-            <SongsList
-              onSongSelect={this.handleSongSelect}
-              songs={this.state.songs}
-              resetState={this.resetState}
-            />
-            <PlayerBox currentSong={currentSong} />
-          </Col>
-        </Row>
-        {/* <Row>
-          <Col>
-            <NewStudentModal create={true} resetState={this.resetState} />
-          </Col>
-        </Row> */}
-      </Container>
+
+        <SongsList
+          onSongSelect={this.handleSongSelect}
+          songs={this.state.songs}
+          resetState={this.resetState}
+        />
+        <PlayerBox currentSong={currentSong} />
+
+      </>
     );
   }
 }

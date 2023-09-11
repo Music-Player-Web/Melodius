@@ -11,44 +11,93 @@ import Playlist from "./pages/Playlist/Playlist";
 import Playlists from "./pages/Playlists/Playlists";
 import Recent from "./pages/Recent/Recent";
 import Discover from "./pages/Discover/Discover";
-// import PrivateRoute from "./utils/PrivateRoute"
-// import { AuthProvider } from './context/AuthContext'
-// import LoginPage from './pages/LoginPage'
-// import SignupPage from './pages/SignupPage'
+import AuthPage from './components/AuthPage/AuthPage';
+import { getUser } from './utilities/users-service';
+import Header from './components/Header';
+import Grid from '@mui/material/Grid';
+
+
 import './App.css';
+
+
+
 export default function App() {
+
   const [currentSong, setCurrentSong] = useState(null);
+  const [user, setUser] = useState(getUser());
 
   const handlePlay = (song) => {
     setCurrentSong(song);
   };
 
-  return (
     
-    // <Fragment>
-    //   <NavBar />
-    //   <SideBar />
+
+    // <Router>
+    //   <div className="main-body">
+    //     <Header user={user} setUser={setUser}/>
+    //     <NavBar />
+    //     <SideBar />
+    //     <Home />
+
+    //     {user ? (
+    //       <>
+    //     <Routes>
+    //       <Route path="/" element={<Discover />} />
+    //       <Route path="/Playlists" element={<Playlists />} />
+    //       <Route path="/Albums" element={<Albums />} />
+    //       <Route path="/Playelist" element={<Playlist />} />
+    //       <Route path="/Favourites" element={<Favourites />} />
+    //       <Route path="/Recent" element={<Recent />} />
+    //       <Route path="/Genres" element={<Genres />} />
+    //     </Routes>
+    //     </>
+    //     ) : (
+    //       <AuthPage setUser={setUser} />
+    //     )}
+
+    //   </div>
     //   <Footer />
-    // </Fragment>
-    <Router>
-      <div className="main-body">
-        <NavBar />
-        <SideBar />
-        <Home />
-        <Routes>
-          <Route path="/" element={<Discover />} />
-          <Route path="/Playlists" element={<Playlists />} />
-          <Route path="/Albums" element={<Albums />} />
-          <Route path="/Playelist" element={<Playlist />} />
-          <Route path="/Favourites" element={<Favourites />} />
-          <Route path="/Recent" element={<Recent />} />
-          <Route path="/Genres" element={<Genres />} />
-          {/* <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/SignupPage" element={<SignupPage />} /> */}
-        </Routes>
+    // </Router>
+
+return (
+  <Router>
+    <div className="main-body">
+    <Header user={user} setUser={setUser}/>
+
+      <NavBar />
+      <SideBar />
+      <div className="musicOuterContainer">
+        <Grid container>
+          <Grid xs={8}>
+          {user ? (
+             <>
+            <Routes>
+              <Route path="/" element={<Discover />} />
+              <Route path="/Playlists" element={<Playlists />} />
+              <Route path="/Albums" element={<Albums />} />
+              <Route path="/Playelist" element={<Playlist />} />
+              <Route path="/Favourites" element={<Favourites />} />
+              <Route path="/Recent" element={<Recent />} />
+              <Route path="/Genres" element={<Genres />} />
+
+            </Routes>
+            </>
+            ) : (
+            <AuthPage setUser={setUser} />
+            )}
+          </Grid>
+          <Grid xs={4}>
+            <Home />
+          </Grid>
+        </Grid>
+
       </div>
-      <Footer />
-    </Router>
-  );
+
+
+    </div>
+    <Footer />
+  </Router>
+);
 }
+
 

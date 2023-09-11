@@ -17,7 +17,7 @@ class SongsList extends Component {
             <th>Title</th>
             <th>Artist</th>
             <th>Play</th>
-            <th></th>
+            {/* <th></th> */}
           </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@ class SongsList extends Component {
                     Play
                   </button>
                 </td>
-                <td>{song.audio_file}</td>
+                {/* <td>{song.audio_file}</td> */}
               </tr>
             ))
           )}
