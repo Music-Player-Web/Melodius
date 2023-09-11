@@ -10,6 +10,10 @@ import Playlist from "./pages/Playlist/Playlist";
 import Playlists from "./pages/Playlists/Playlists";
 import Recent from "./pages/Recent/Recent";
 import Discover from "./pages/Discover/Discover";
+// import PrivateRoute from "./utils/PrivateRoute"
+// import { AuthProvider } from './context/AuthContext'
+// import LoginPage from './pages/LoginPage'
+// import SignupPage from './pages/SignupPage'
 import './App.css';
 export default function App() {
   return (
@@ -30,6 +34,8 @@ export default function App() {
           <Route path="/Favourites" element={<Favourites />} />
           <Route path="/Recent" element={<Recent />} />
           <Route path="/Genres" element={<Genres />} />
+          {/* <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/SignupPage" element={<SignupPage />} /> */}
         </Routes>
       </div>
       <Footer />
