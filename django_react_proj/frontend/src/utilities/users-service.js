@@ -9,7 +9,7 @@ import * as usersAPI from './users-api';
 export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js
   // module.
-  const token = await usersAPI.signUp(userData); 
+  const token = await usersAPI.signUp(userData);
   localStorage.setItem('token', JSON.stringify(token));
   return getUser();
 }
@@ -17,6 +17,9 @@ export async function signUp(userData) {
 export function getToken() {
   // getItem will return null if the key does not exist
   const token = localStorage.getItem('token');
+  console.log("TOKEN")
+
+  console.log(token);
   if (!token) return null;
   // Let's check if token has expired...
   const payload = JSON.parse(atob(token.split('.')[1]));
@@ -31,7 +34,7 @@ export function getToken() {
 export function getUser() {
   const token = getToken();
   return token ?
-    JSON.parse(token).user    
+    JSON.parse(token).user
     :
     null;
 }
