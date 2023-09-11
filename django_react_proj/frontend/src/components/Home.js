@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Col, Container, Row } from "reactstrap";
+// import { Col, Container, Row } from "reactstrap";
 // import StudentList from "./StudentList";
 // import NewStudentModal from "./NewStudentModal";
 import SongsList from "./SongsList";
 import PlayerBox from "./PlayerBox/PlayerBox";
+import ProgressCircle from "./ProgressCircle/ProgressCircle";
 
 import axios from "axios";
 
@@ -40,7 +41,13 @@ class Home extends Component {
     const { currentSong } = this.state;
     return (
       <>
-        {/* <WaveAmination /> */}
+        <ProgressCircle
+          percentage={0}
+          isPlaying={true}
+          size={300}
+          color={"#990000"}
+          image={"https://upload.wikimedia.org/wikipedia/en/d/d9/Imagine_Dragons_Mercury_album_cover_2022.webp"}
+        />
         <PlayerBox />
 
         <SongsList

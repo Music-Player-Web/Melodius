@@ -37,7 +37,6 @@ export default function App() {
         <Header user={user} setUser={setUser} />
 
         <NavBar />
-        <SideBar />
         <div className="musicOuterContainer">
           <Grid container>
             <Grid xs={8}>
@@ -59,6 +58,7 @@ export default function App() {
                   <Route path="/Auth" element={<AuthPage setUser={setUser} />} />
 
                 </Routes>
+                <AuthPage setUser={setUser} />
               )}
             </Grid>
             <Grid xs={4}>
@@ -66,6 +66,9 @@ export default function App() {
             </Grid>
           </Grid>
         </div>
+
+        </div>
+
       </div>
       <Footer />
     </Router>
