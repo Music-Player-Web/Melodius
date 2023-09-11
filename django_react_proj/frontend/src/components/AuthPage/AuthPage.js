@@ -1,16 +1,23 @@
 import { useState } from 'react';
 import SignIn from '../Auth/SignIn';
 import SignUp from '../Auth/SignUp';
+import { useNavigate } from 'react-router-dom';
 
 export default function AuthPage({ setUser }) {
+  const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(true);
+
+
+  const handleSuccess = () => {
+    navigate('/');
+  };
 
   return (
     <main className="AuthPage" style={{ marginLeft: "100px" }}>
       <div>
         <h3 onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</h3>
       </div>
-      {showLogin ? <SignIn setUser={setUser} /> : <SignUp setUser={setUser} />}
+      {showLogin ? <SignIn setUser={setUser} onSuccess={handleSuccess} /> : <SignUp setUser={setUser} onSuccess={handleSuccess} />}
     </main>
   );
 }

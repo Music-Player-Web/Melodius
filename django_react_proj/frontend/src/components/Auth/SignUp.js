@@ -26,6 +26,8 @@ class SignUp extends Component {
       const user = await signUp(this.state.userData);
       // Handle successful sign up (e.g., redirect to login page)
       this.props.setUser(user);
+      // Call the onSuccess function passed as a prop
+      this.props.onSuccess();
     } catch (error) {
       this.setState({ error: 'Registration failed' });
     }
