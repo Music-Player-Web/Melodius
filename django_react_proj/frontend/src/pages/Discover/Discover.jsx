@@ -1,9 +1,50 @@
 import React from "react";
 
-export default function Discover() {
+function Discover() {
   return (
-    <h1>
-      Discover
-    </h1>
+    <div>
+      <>
+  <main role="madin" style={{ marginTop: 50 }}>
+    {/* Main jumbotron for a primary marketing message or call to action */}
+    <div className="jumbotron">
+      <div className="container">
+        <h1 className="display-3">Discover!</h1>
+       
+        <p>
+          <a className="btn btn-primary btn-lg" href="#" role="button">
+            Learn more »
+          </a>
+        </p>
+      </div>
+    </div>
+    <div className="container">
+      {/* Example row of columns */}
+      <div className="row">
+        <div className="col-md-4">
+          <h2>NEW HITS</h2>
+         
+          
+        </div>
+        <div className="col-md-4">
+          <h2>TOP ARTISTS</h2>
+         
+        </div>
+        <div className="col-md-4">
+          <h2>RECOMMENDED TRACK</h2>
+         
+          
+        </div>
+        
+      </div>
+      
+    </div>{" "}
+    {/* /container */}
+  </main>
+
+</>
+
+    </div>
   )
 }
+
+export default Discover
