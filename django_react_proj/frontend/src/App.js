@@ -30,74 +30,74 @@ export default function App() {
     setCurrentSong(song);
   };
 
-    
 
-    // <Router>
-    //   <div className="main-body">
-    //     <Header user={user} setUser={setUser}/>
-    //     <NavBar />
-    //     <SideBar />
-    //     <Home />
 
-    //     {user ? (
-    //       <>
-    //     <Routes>
-    //       <Route path="/" element={<Discover />} />
-    //       <Route path="/Playlists" element={<Playlists />} />
-    //       <Route path="/Albums" element={<Albums />} />
-    //       <Route path="/Playelist" element={<Playlist />} />
-    //       <Route path="/Favourites" element={<Favourites />} />
-    //       <Route path="/Recent" element={<Recent />} />
-    //       <Route path="/Genres" element={<Genres />} />
-    //     </Routes>
-    //     </>
-    //     ) : (
-    //       <AuthPage setUser={setUser} />
-    //     )}
+  // <Router>
+  //   <div className="main-body">
+  //     <Header user={user} setUser={setUser}/>
+  //     <NavBar />
+  //     <SideBar />
+  //     <Home />
 
-    //   </div>
-    //   <Footer />
-    // </Router>
+  //     {user ? (
+  //       <>
+  //     <Routes>
+  //       <Route path="/" element={<Discover />} />
+  //       <Route path="/Playlists" element={<Playlists />} />
+  //       <Route path="/Albums" element={<Albums />} />
+  //       <Route path="/Playelist" element={<Playlist />} />
+  //       <Route path="/Favourites" element={<Favourites />} />
+  //       <Route path="/Recent" element={<Recent />} />
+  //       <Route path="/Genres" element={<Genres />} />
+  //     </Routes>
+  //     </>
+  //     ) : (
+  //       <AuthPage setUser={setUser} />
+  //     )}
 
-return (
-  <Router>
-    <div className="main-body">
-    <Header user={user} setUser={setUser}/>
+  //   </div>
+  //   <Footer />
+  // </Router>
 
-      <NavBar />
-      <SideBar />
-      <div className="musicOuterContainer">
-        <Grid container>
-          <Grid xs={8}>
-          {user ? (
-             <>
-            <Routes>
-              <Route path="/" element={<Discover />} />
-              <Route path="/Playlists" element={<Playlists />} />
-              <Route path="/Albums" element={<Albums />} />
-              <Route path="/Playelist" element={<Playlist />} />
-              <Route path="/Favourites" element={<Favourites />} />
-              <Route path="/Recent" element={<Recent />} />
-              <Route path="/Genres" element={<Genres />} />
+  return (
+    <Router>
+      <div className="main-body">
+        <Header user={user} setUser={setUser} />
 
-            </Routes>
-            </>
-            ) : (
-            <AuthPage setUser={setUser} />
-            )}
+        <NavBar />
+        {/* <SideBar /> */}
+        <div className="musicOuterContainer">
+          <Grid container>
+            <Grid xs={8}>
+              {user ? (
+                <>
+                  <Routes>
+                    <Route path="/" element={<Discover />} />
+                    <Route path="/Playlists" element={<Playlists />} />
+                    <Route path="/Albums" element={<Albums />} />
+                    <Route path="/Playelist" element={<Playlist />} />
+                    <Route path="/Favourites" element={<Favourites />} />
+                    <Route path="/Recent" element={<Recent />} />
+                    <Route path="/Genres" element={<Genres />} />
+
+                  </Routes>
+                </>
+              ) : (
+                <AuthPage setUser={setUser} />
+              )}
+            </Grid>
+            <Grid xs={4}>
+              <Home />
+            </Grid>
           </Grid>
-          <Grid xs={4}>
-            <Home />
-          </Grid>
-        </Grid>
+
+        </div>
+
 
       </div>
-
-
-    </div>
-    <Footer />
-  </Router>
-);
+      <Footer />
+    </Router>
+  );
 }
 
 
