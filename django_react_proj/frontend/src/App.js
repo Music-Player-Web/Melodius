@@ -1,7 +1,8 @@
-import React, { } from "react";
+import React, { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import SideBar from "./components/SideBar/SideBar";
+import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Favourites from "./pages/Favourites/Favourites";
 import Albums from "./pages/Albums/Albums";
@@ -12,7 +13,14 @@ import Recent from "./pages/Recent/Recent";
 import Discover from "./pages/Discover/Discover";
 import './App.css';
 export default function App() {
+  const [currentSong, setCurrentSong] = useState(null);
+
+  const handlePlay = (song) => {
+    setCurrentSong(song);
+  };
+
   return (
+    
     // <Fragment>
     //   <NavBar />
     //   <SideBar />
@@ -22,6 +30,7 @@ export default function App() {
       <div className="main-body">
         <NavBar />
         <SideBar />
+        <Home />
         <Routes>
           <Route path="/" element={<Discover />} />
           <Route path="/Playlists" element={<Playlists />} />
