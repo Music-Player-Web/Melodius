@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import SideBar from "./components/SideBar/SideBar";
+// import SideBar from "./components/SideBar/SideBar";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Favourites from "./pages/Favourites/Favourites";
@@ -29,35 +29,6 @@ export default function App() {
   const handlePlay = (song) => {
     setCurrentSong(song);
   };
-
-
-
-  // <Router>
-  //   <div className="main-body">
-  //     <Header user={user} setUser={setUser}/>
-  //     <NavBar />
-  //     <SideBar />
-  //     <Home />
-
-  //     {user ? (
-  //       <>
-  //     <Routes>
-  //       <Route path="/" element={<Discover />} />
-  //       <Route path="/Playlists" element={<Playlists />} />
-  //       <Route path="/Albums" element={<Albums />} />
-  //       <Route path="/Playelist" element={<Playlist />} />
-  //       <Route path="/Favourites" element={<Favourites />} />
-  //       <Route path="/Recent" element={<Recent />} />
-  //       <Route path="/Genres" element={<Genres />} />
-  //     </Routes>
-  //     </>
-  //     ) : (
-  //       <AuthPage setUser={setUser} />
-  //     )}
-
-  //   </div>
-  //   <Footer />
-  // </Router>
 
   return (
     <Router>
