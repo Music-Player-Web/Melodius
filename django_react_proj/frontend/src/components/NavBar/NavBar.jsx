@@ -13,6 +13,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
@@ -24,8 +26,9 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import StarIcon from '@mui/icons-material/Star';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Button } from 'reactstrap';
+import LoginIcon from '@mui/icons-material/Login';
 import { logOut } from '../../utilities/users-service';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 const drawerWidth = 240;
 
@@ -166,7 +169,7 @@ export default function MiniDrawer({user, setUser}) {
               id="SideBar-logo"
             />
             {/* </Typography> */}
-            <TextField
+            {/* <TextField
               label="Search"
               value={searchQuery}
               onChange={handleSearchChange}
@@ -174,13 +177,21 @@ export default function MiniDrawer({user, setUser}) {
                 style: { color: 'black' },
               }}
               style={{ background: 'white', margin: '10px' }}
-            />
-
-            <Link style={{ textDecoration: "none" }} to="/Auth">
-              <ListItemIcon>
-              </ListItemIcon>
-              login / signup
-            </Link>
+            /> */}
+            { !user ? (
+              <List sx={{flexGrow: 1}}>
+              <ListItem>
+            <ListItemButton style={{ color: 'white', display:'grid',justifyContent:'end' }} className='log'>
+            <Link style={{ textDecoration: "none" , color: "white"}} to="/Auth">
+              {/* <ListItemIcon>
+                <LoginIcon color="secondary" />
+              </ListItemIcon> */}
+              <ListItemText primary="Login"/>
+              </Link>
+          </ListItemButton>
+          </ListItem>
+          </List>
+            ) : null}
 
           </Toolbar>
         </AppBar >
@@ -199,7 +210,7 @@ export default function MiniDrawer({user, setUser}) {
             <React.Fragment>
 
               <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
-                <Link style={{ textDecoration: "none" }} to="/">
+                <Link style={{ textDecoration: "none", color: "white" }} to="/">
                   <ListItemIcon>
                     <LibraryMusicIcon color="secondary" />
                   </ListItemIcon>
@@ -207,7 +218,7 @@ export default function MiniDrawer({user, setUser}) {
                 </Link>
               </ListItemButton>
               <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none" }} to="/Albums">
+                <Link style={{ textDecoration: "none", color: "white" }} to="/Albums">
                   <ListItemIcon>
                     <AlbumIcon color="secondary" />
                   </ListItemIcon>
@@ -215,13 +226,23 @@ export default function MiniDrawer({user, setUser}) {
                   </Link>
               </ListItemButton>
               <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none" }} to="/Genres">
+                <Link style={{ textDecoration: "none", color: "white" }} to="/Artists">
+                  <ListItemIcon>
+                    <AccessibilityNewIcon color="secondary" />
+                  </ListItemIcon>
+                  Artist
+                  </Link>
+              </ListItemButton>
+              <ListItemButton style={{ color: 'white' }}>
+                <Link style={{ textDecoration: "none" , color: "white"}} to="/Genres">
                   <ListItemIcon>
                     <ClassIcon color="secondary" />
                   </ListItemIcon>
                   Genres
                 </Link>
               </ListItemButton>
+            
+             { user ? (
               <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                 {/* <Link style={{ textDecoration: "none" }} to="/"> */}
                 <ListItemIcon>
@@ -230,9 +251,10 @@ export default function MiniDrawer({user, setUser}) {
                 Your Library
                 {/* </Link> */}
               </ListItemButton>
-
+             ): null}
+             {user ? (
               <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none" }} to="/Recent">
+                <Link style={{ textDecoration: "none", color: "white" }} to="/Recent">
                   <ListItemIcon>
                     <PlaylistPlayIcon color="secondary" />
                   </ListItemIcon>
@@ -240,29 +262,34 @@ export default function MiniDrawer({user, setUser}) {
                 </Link>
               </ListItemButton>
 
-
+              ) : null }
+             
               <React.Fragment>
+              {user ? (
                 <ListItemButton style={{ color: 'white' }}>
 
-                  <Link style={{ textDecoration: "none" }} to="/Playlists">
+                  <Link style={{ textDecoration: "none", color: "white" }} to="/Playlists">
                     <ListItemIcon>
                       <SubscriptionsIcon color="secondary" />
                     </ListItemIcon>
                     PlayLists
                   </Link>
-
+                  
                 </ListItemButton>
+                ) : null }
+                {user ? (
                 <ListItemButton style={{ color: 'white' }}>
 
-                  <Link style={{ textDecoration: "none" }} to="/Favourites">
+                  <Link style={{ textDecoration: "none", color: "white" }} to="/Favourites">
                     <ListItemIcon>
                       <StarIcon color="secondary" />
                     </ListItemIcon>
                     Favourites
                   </Link>
-
+                  
                 </ListItemButton>
-
+                ) : null }
+                {user ? (
                 <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                   {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
                   <ListItemIcon >
@@ -270,23 +297,25 @@ export default function MiniDrawer({user, setUser}) {
                   </ListItemIcon>
                   Your Playlists
                   {/* </Link> */}
-
                 </ListItemButton>
-                <ListItemButton>
-
-
-
-                </ListItemButton>
+                ) : null }
+               
+            
                 <Divider />
-                <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none" }} to="/Logout" onClick={handleLogOut}>
-                  
-                  <ListItemIcon>
+                { user ? (
+                 
+                <ListItemButton style={{ color: 'white'}}>
+                <Link style={{ textDecoration: "none" , color: "white"}} to="/Logout" onClick={handleLogOut}>
+              <ListItemIcon>
                     <LogoutIcon color="secondary" />
                   </ListItemIcon>
-                  Log Out
+                   Log Out
+                  
                   </Link>
                 </ListItemButton>
+               
+                ) : null }
+                
               </React.Fragment>
 
             </React.Fragment>

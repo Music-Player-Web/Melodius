@@ -1,11 +1,20 @@
+  .sinup-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:75%;
+    
+  }
+  
+  
   .box {
     position: relative;
     width: 380px;
     height: 520px;
-    background: #333333;
+    background: #404040;
     border-radius: 8px;
     overflow: hidden;
-    margin: 100px;
+   margin-top: 100px;
   }
 
   .box::before {
@@ -83,7 +92,7 @@
   .box form {
     position: absolute;
     inset: 4px;
-    background: #333333;
+    background: #41403f;
     border-radius: 8px;
     padding: 50px 40px;
     z-index: 2;

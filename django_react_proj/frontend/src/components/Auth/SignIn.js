@@ -37,6 +37,7 @@ class SignIn extends Component {
     const { credentials, error } = this.state;
 
     return (
+
       <div className="signin-container">
         <div class="box1">
           <span class="borderLine"></span>
@@ -63,9 +64,8 @@ class SignIn extends Component {
               <span>Password</span>
               <i></i>
             </div>
-            <div className="btn-primary">
-              <input type="Submit" value="Log In"></input>
-            </div>
+
+            <input type="Submit" value="Log In"></input>
           </form>
         </div>
       </div>
