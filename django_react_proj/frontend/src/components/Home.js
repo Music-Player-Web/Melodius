@@ -36,7 +36,7 @@ class Home extends Component {
     axios.get("http://localhost:8000/api/albums/").then(res => this.setState({ album: res.data }));
   };
 
-  
+
   resetState = () => {
     this.getStudents();
     this.getSongs();

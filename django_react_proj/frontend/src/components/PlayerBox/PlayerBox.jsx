@@ -1,7 +1,5 @@
 
 import React from "react";
-import ProgressCircle from "../ProgressCircle/ProgressCircle";
-import React, { useEffect, useState } from "react";
 import { Box, IconButton, Slider } from '@mui/material';
 import { PlayArrow, Pause, SkipNext, SkipPrevious } from '@mui/icons-material';
 
@@ -41,13 +39,6 @@ const MusicPlayer = ({ currentSong }) => {
       <h2>Music Player</h2>
       {currentSong && (
         <div>
-          <ProgressCircle
-          percentage={100}
-          isPlaying={true}
-          size={300}
-          color={"#333333"}
-          image={"https://upload.wikimedia.org/wikipedia/en/d/d9/Imagine_Dragons_Mercury_album_cover_2022.webp"}
-        />
           {/* <img className="album-cover" src={album.image_url} alt="Album Cover" /> */}
           <h3>Title: {currentSong.title}</h3>
           <h4>Artist: {currentSong.artist}</h4>
