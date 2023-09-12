@@ -125,7 +125,7 @@ def artists_list(request):
     if request.method == 'GET':
         data = Artist.objects.all()
 
-        serializer = AlbumSerializer(data, context={'request': request}, many=True)
+        serializer = ArtistSerializer(data, context={'request': request}, many=True)
 
         return Response(serializer.data)
 
