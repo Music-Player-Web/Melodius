@@ -55,11 +55,48 @@ def songs_list(request):
             serializer.save()
             return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+@api_view(['GET', 'POST'])
+def albums_list(request):
+    if request.method == 'GET':
+        data = Album.objects.all()
+
+        serializer = AlbumSerializer(data, context={'request': request}, many=True)
+
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+# @api_view(['PUT', 'DELETE'])
+def album_detail(request, pk):
+    try:
+        user = Album.objects.get(pk=pk)
+    except Album.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'PUT':
+        serializer = AlbumSerializer(user, data=request.data,context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # elif request.method == 'DELETE':
+    #     user.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
+    
 
 
-class AlbumViewSet(viewsets.ModelViewSet):
-    queryset = Album.objects.all()
-    serializer_class = AlbumSerializer
+
+
+    
 
 # def play_song(request, song_id):
 #     song = Song.objects.get(id=song_id)
