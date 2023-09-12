@@ -47,10 +47,10 @@ class Home extends Component {
     return (
       <>
         <ProgressCircle
-          percentage={0}
+          percentage={100}
           isPlaying={true}
           size={300}
-          color={"#990000"}
+          color={"#333333"}
           image={"https://upload.wikimedia.org/wikipedia/en/d/d9/Imagine_Dragons_Mercury_album_cover_2022.webp"}
         />
         <PlayerBox />

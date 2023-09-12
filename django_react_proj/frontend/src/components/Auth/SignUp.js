@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import './SignUp.css';
 
 class SignUp extends Component {
   state = {
@@ -37,39 +38,42 @@ class SignUp extends Component {
     const { userData, error } = this.state;
 
     return (
-      <div>
-        <h2>Sign Up</h2>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Username</label>
-            <input
-              type="text"
-              name="username"
-              value={userData.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            <label>Email</label> {/* Add the email input field */}
-            <input
-              type="email"
-              name="email"
-              value={userData.email}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={userData.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit">Sign Up</button>
-        </form>
+
+      <div className="sinup-container">
+        <div class="box">
+          <span class="borderLine"></span>
+          <form onSubmit={this.handleSubmit}>
+            <h1>Sign Up</h1>
+            {error && <p>{error}</p>}
+            <div class="inputBox">
+              <input type="text"
+                name="username"
+                value={userData.username}
+                onChange={this.handleChange} />
+              <span>Username</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input type="email"
+                name="email"
+                value={userData.email}
+                onChange={this.handleChange} />
+              <span>Email</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input type="password"
+                name="password"
+                value={userData.password}
+                onChange={this.handleChange} />
+              <span>Password</span>
+              <i></i>
+            </div>
+            <div className="btn-primary">
+              <input type="Submit" value="Sign Up"></input>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

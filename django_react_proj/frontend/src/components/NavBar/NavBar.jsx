@@ -25,6 +25,7 @@ import StarIcon from '@mui/icons-material/Star';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Button } from 'reactstrap';
+import { logOut } from '../../utilities/users-service';
 
 const drawerWidth = 240;
 
@@ -115,7 +116,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer({user, setUser}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -126,6 +127,11 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  function handleLogOut() {
+    logOut();
+    setUser(null);
+  }
+
 
   const [searchQuery, setSearchQuery] = React.useState('');
 
@@ -205,8 +211,8 @@ export default function MiniDrawer() {
                   <ListItemIcon>
                     <AlbumIcon color="secondary" />
                   </ListItemIcon>
-                  Albums
-                </Link>
+                  Album
+                  </Link>
               </ListItemButton>
               <ListItemButton style={{ color: 'white' }}>
                 <Link style={{ textDecoration: "none" }} to="/Genres">
@@ -273,10 +279,13 @@ export default function MiniDrawer() {
                 </ListItemButton>
                 <Divider />
                 <ListItemButton style={{ color: 'white' }}>
+                <Link style={{ textDecoration: "none" }} to="/Logout" onClick={handleLogOut}>
+                  
                   <ListItemIcon>
                     <LogoutIcon color="secondary" />
                   </ListItemIcon>
                   Log Out
+                  </Link>
                 </ListItemButton>
               </React.Fragment>
 

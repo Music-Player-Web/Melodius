@@ -7,7 +7,7 @@ export default function LogOut({ user, setUser }) {
   }
 
   return (
-    <div className="UserLogOut">
+    <div className="UserLogOut" style={{ margintop: '50px' }}>
       <div>{user.name}</div>
       <div className="email">{user.email}</div>
       <button className="btn-sm" onClick={handleLogOut}>LOG OUT</button>
