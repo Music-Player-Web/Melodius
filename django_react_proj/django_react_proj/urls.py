@@ -28,6 +28,7 @@ urlpatterns = [
     re_path(r'^api/usersq/$', views.users_list),
     re_path(r'^api/usersq/([0-9])$', views.users_detail),
     re_path(r'^api/songs/$', views.songs_list),
+    re_path(r'^api/albums/$', views.albums_list),
     # Token Authentication
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
