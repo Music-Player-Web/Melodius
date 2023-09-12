@@ -1,5 +1,6 @@
 import React from "react";
-import Grid from '@mui/material/Grid';
+import * as MUI from '@mui/material';
+
 
 
 
@@ -22,9 +23,9 @@ function Discover() {
   };
 
   return (
-      <main role="main">
- <Grid container>
-            <Grid xs={12}>
+    <MUI.Container style={{ marginTop: "100px"}}>
+ <MUI.Grid container>
+            <MUI.Grid xs={12}>
             <div className="jumbotron"></div>
 
             <h2>NEW HIT</h2>
@@ -33,8 +34,8 @@ function Discover() {
                 <p>{data.newHit.title}</p>
                 <p>{data.newHit.artist}</p>
               </div>
-            </Grid>
-            <Grid xs={12}>
+            </MUI.Grid>
+            <MUI.Grid xs={12}>
             <h2>TOP ARTISTS</h2>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                 {data.topArtists.map((artist) => (
@@ -44,9 +45,9 @@ function Discover() {
                   </div>
                 ))}
               </div>
-            </Grid>
+            </MUI.Grid>
 
-            <Grid xs={12}>
+            <MUI.Grid xs={12}>
             <h2>RECOMMENDED TRACKS</h2>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                 {data.recommendedTracks.map((track) => (
@@ -56,11 +57,11 @@ function Discover() {
                   </div>
                 ))}
               </div>
-            </Grid>
+            </MUI.Grid>
 
-          </Grid>
+          </MUI.Grid>
 
-      </main>
+      </MUI.Container>
   );
 }
 

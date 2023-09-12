@@ -30,6 +30,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import { logOut } from '../../utilities/users-service';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -62,6 +63,9 @@ const defaultTheme = createTheme({
     },
     secondary: {
       main: '#fff'
+    },
+    third:{
+    main: "red"
     },
     background: {
       default: "#333333", // Set default background color to white
@@ -169,7 +173,7 @@ export default function MiniDrawer({user, setUser}) {
               id="SideBar-logo"
             />
             {/* </Typography> */}
-            {/* <TextField
+            <TextField
               label="Search"
               value={searchQuery}
               onChange={handleSearchChange}
@@ -177,12 +181,12 @@ export default function MiniDrawer({user, setUser}) {
                 style: { color: 'black' },
               }}
               style={{ background: 'white', margin: '10px' }}
-            /> */}
+            />
             { !user ? (
               <List sx={{flexGrow: 1}}>
               <ListItem>
             <ListItemButton style={{ color: 'white', display:'grid',justifyContent:'end' }} className='log'>
-            <Link style={{ textDecoration: "none" , color: "white"}} to="/Auth">
+            <Link  style={{ textDecoration: "none" , color: "white"}} to="/Auth">
               {/* <ListItemIcon>
                 <LoginIcon color="secondary" />
               </ListItemIcon> */}
@@ -212,19 +216,20 @@ export default function MiniDrawer({user, setUser}) {
               <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                 <Link style={{ textDecoration: "none", color: "white" }} to="/">
                   <ListItemIcon>
-                    <LibraryMusicIcon color="secondary" />
+                    <LibraryMusicIcon color="third" />
                   </ListItemIcon>
-                  Discover
+                  <Link style={{color:'red', textDecoration: 'none'}}>Discover</Link>
                 </Link>
               </ListItemButton>
               <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none", color: "white" }} to="/Albums">
+                <Link  style={{ textDecoration: "none", color: "white"}} to="/Albums">
                   <ListItemIcon>
                     <AlbumIcon color="secondary" />
                   </ListItemIcon>
                   Album
                   </Link>
               </ListItemButton>
+            
               <ListItemButton style={{ color: 'white' }}>
                 <Link style={{ textDecoration: "none", color: "white" }} to="/Artists">
                   <ListItemIcon>
@@ -246,9 +251,9 @@ export default function MiniDrawer({user, setUser}) {
               <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                 {/* <Link style={{ textDecoration: "none" }} to="/"> */}
                 <ListItemIcon>
-                  <LibraryBooksIcon color="secondary" />
+                  <LibraryBooksIcon color="third" />
                 </ListItemIcon>
-                Your Library
+                <Link style={{color:'red', textDecoration: 'none'}}>Your Library</Link>
                 {/* </Link> */}
               </ListItemButton>
              ): null}
@@ -293,9 +298,9 @@ export default function MiniDrawer({user, setUser}) {
                 <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
                   {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
                   <ListItemIcon >
-                    <QueueMusicIcon color="secondary" />
+                    <QueueMusicIcon color="third" />
                   </ListItemIcon>
-                  Your Playlists
+                 <Link style={{color:'red', textDecoration: 'none'}}>Your Playlists</Link>
                   {/* </Link> */}
                 </ListItemButton>
                 ) : null }
