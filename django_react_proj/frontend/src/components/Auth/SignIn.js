@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { login } from "../../utilities/users-service";
-
+import './SignIn.css';
 
 class SignIn extends Component {
   state = {
@@ -37,30 +37,37 @@ class SignIn extends Component {
     const { credentials, error } = this.state;
 
     return (
-      <div>
-        <h2>Sign In</h2>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Username</label>
-            <input
-              type="text"
-              name="username"
-              value={credentials.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={credentials.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit">Sign In</button>
-        </form>
+      <div className="signin-container">
+        <div class="box1">
+          <span class="borderLine"></span>
+          <form onSubmit={this.handleSubmit}>
+            <h1>Log In</h1>
+            {error && <p>{error}</p>}
+            <div class="inputBox">
+              <input
+                type="text"
+                name="username"
+                value={credentials.username}
+                onChange={this.handleChange}
+              />
+              <span>Username</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                name="password"
+                value={credentials.password}
+                onChange={this.handleChange}
+              />
+              <span>Password</span>
+              <i></i>
+            </div>
+            <div className="btn-primary">
+              <input type="Submit" value="Log In"></input>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

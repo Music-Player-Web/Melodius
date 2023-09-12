@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import SideBar from "./components/SideBar/SideBar";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Favourites from "./pages/Favourites/Favourites";
@@ -31,7 +30,7 @@ export default function App() {
       <div className="main-body">
         <Header user={user} setUser={setUser} />
 
-        <NavBar />
+        <NavBar user={user} setUser={setUser} />
         <div className="musicOuterContainer">
           <Grid container>
             <Grid xs={8}>
@@ -52,6 +51,7 @@ export default function App() {
                   <Routes>
                     <Route path="/Auth" element={<AuthPage setUser={setUser} />} />
                   </Routes>
+
                 </>
               )}
             </Grid>
