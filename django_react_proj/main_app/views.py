@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import viewsets
 from rest_framework import status
 from django.shortcuts import render
 from .models import User, Song
@@ -56,7 +57,13 @@ def songs_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class AlbumViewSet(viewsets.ModelViewSet):
+    queryset = Album.objects.all()
+    serializer_class = AlbumSerializer
+
 # def play_song(request, song_id):
 #     song = Song.objects.get(id=song_id)
 #     # Implement logic to play the song
 #     return render(request, 'musicplayer/play_song.html', {'song': song})
+
+
