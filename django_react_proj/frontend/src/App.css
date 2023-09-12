@@ -1,5 +1,5 @@
 body {
-  background-color: #404040;
+  background: linear-gradient(45deg, #7b7678 30%, #32302f 90%)!important;
 }
 
 .moo > .MuiPaper-root {

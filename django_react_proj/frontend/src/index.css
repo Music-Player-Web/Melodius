@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* color:#404040; */
 }
 
 code {
@@ -13,12 +14,13 @@ code {
 }
 
 #root {
-  background-color: #404040;
+  /* background-color: #404040; */
   /* background-color: white; */
   min-height: 100vh;
+  background: linear-gradient(45deg, #7b7678 30%, #32302f 90%);
 }
 * {
   margin: 0px;
   padding: 0px;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }

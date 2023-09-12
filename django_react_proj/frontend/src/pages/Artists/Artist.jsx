@@ -3,7 +3,7 @@ import React from "react";
 export default function Artists() {
   return (
     <div>
-      Artists
+     <h1>Artists</h1>
     </div>
   )
 }
