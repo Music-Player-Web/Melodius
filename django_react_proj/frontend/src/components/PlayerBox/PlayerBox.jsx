@@ -6,19 +6,8 @@ import { PlayArrow, Pause, SkipNext, SkipPrevious } from '@mui/icons-material';
 const MusicPlayer = ({ currentSong }) => {
   const [playing, setPlaying] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
-  // const [album, setAlbum] = useState(null);
   const audioRef = React.useRef();
 
-  // useEffect(() => {
-  //   // Replace 'http://localhost:8000/albums/' with your Django API endpoint
-  //   fetch('http://localhost:8000/albums/')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Find the album that matches the current song
-  //       const album = data.find(album => album.name === currentSong.album);
-  //       setAlbum(album);
-  //     });
-  // }, [currentSong]);
 
   const handlePlayPause = () => {
     if (playing) {
@@ -65,42 +54,3 @@ const MusicPlayer = ({ currentSong }) => {
 };
 
 export default MusicPlayer;
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-
-
-// const MusicPlayer = ({ currentSong }) => {
-//   const [album, setAlbum] = useState(null);
-
-//   useEffect(() => {
-//     // Replace 'http://localhost:8000/albums/' with your Django API endpoint
-//     fetch('http://localhost:8000/albums/')
-//       .then(response => response.json())
-//       .then(data => {
-//         // Find the album that matches the current song
-//         const album = data.find(album => album.name === currentSong.album);
-//         setAlbum(album);
-//       });
-//   }, [currentSong]);
-
-//   return (
-//     <div className="music-player">
-//       <h2>Music Player</h2>
-//       {currentSong && album && (
-//         <div>
-//           <img className="album-cover" src={album.image_url} alt="Album Cover" />
-//           <h3>Title: {currentSong.title}</h3>
-//           <h4>Artist: {currentSong.artist}</h4>
-//           {/* Render the audio player with the source of the current song */}
-//           <audio controls src={currentSong.audio_file} />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default MusicPlayer;
