@@ -31,6 +31,13 @@ urlpatterns = [
     re_path(r'^api/albums/$', views.albums_list),
     re_path(r'^api/albums/([0-9])$', views.album_detail ),
     re_path(r'^api/albums/([0-9])/songs$', views.songs_list_from_album),
+    re_path(r'^api/artists/$', views.artists_list),
+    re_path(r'^api/artists/([0-9])$', views.artist_detail ),
+    re_path(r'^api/artists/([0-9])/songs$', views.songs_list_from_artist),
+    re_path(r'^api/genres/$', views.genres_list),
+    re_path(r'^api/genres/([0-9])$', views.genre_detail ),
+    re_path(r'^api/genres/([0-9])/songs$', views.songs_list_from_genre),
+
     # Token Authentication
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
