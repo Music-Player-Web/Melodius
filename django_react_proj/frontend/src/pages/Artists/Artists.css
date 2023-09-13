@@ -1,0 +1,30 @@
+.artists-container {
+    margin-top: 100px;
+  }
+  
+  .artists-container .MuiGrid-item > .MuiPaper-root {
+    transition: background-color 0.3s;
+    padding:13px;
+
+  }
+
+  .artists-container .MuiGrid-item:hover > .MuiPaper-root {
+    background-color: rgb(179, 178, 179);
+  }
+
+ 
+  h1{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top:100px;
+    color:white;
+    transition: background-color 0.3s;
+    width:200px;
+    border-radius: 50px;
+    
+  }
+  h1:hover{
+    background-color:#333333;
+}
+ 

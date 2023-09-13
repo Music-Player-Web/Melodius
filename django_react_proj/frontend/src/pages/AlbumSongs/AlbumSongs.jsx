@@ -24,15 +24,15 @@ function AlbumSongs() {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
+   <h1>ALBUM SONGS</h1>
+   <div className="albumsongs-container">
       <SongsList
         songs={albumSongs}
         resetState={() => setAlbumSongs([])}
         onSongSelect={handleSongSelect}
       />
-       <PlayerBox currentSong={currentSong}/>
+      </div>
+      <PlayerBox currentSong={currentSong}/>
     </>
   );
 };

@@ -1,0 +1,14 @@
+.albums-container {
+    margin-top: 100px;
+   
+  }
+  
+  .albums-container .MuiGrid-item > .MuiPaper-root {
+    transition: background-color 0.3s;
+    padding:13px;
+
+  }
+
+  .albums-container .MuiGrid-item:hover > .MuiPaper-root {
+    background-color: rgb(179, 178, 179);
+  }
