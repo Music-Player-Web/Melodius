@@ -14,6 +14,8 @@ import Artists from "./pages/Artists/Artists";
 import StandardLayoutWithNav from './pages/Layouts/StandardLayoutWithNav';
 import StandardLayoutWithOutNav from './pages/Layouts/StandardLayoutWithOutNav';
 import './App.css';
+import ArtistSongs from "./pages/ArtistSongs/ArtistSongs";
+import GenreSongs from "./pages/GenreSongs/GenreSongs";
 
 export default function App() {
   const [currentSong, setCurrentSong] = useState(null);
@@ -40,26 +42,23 @@ export default function App() {
             <Route path="/albums/:albumId/songs" element={<StandardLayoutWithNav />} >
               <Route index element={<AlbumSongs />} />
             </Route>
+            <Route path="/Artists" element={<StandardLayoutWithNav />} >
+              <Route index element={<Artists />} />
+            </Route>
+            <Route path="/artists/:artistId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<ArtistSongs />} />
+            </Route>
             <Route path="/Genres" element={<StandardLayoutWithNav />} >
               <Route index element={<Genres />} />
+            </Route>
+            <Route path="/genres/:genreId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<GenreSongs />} />
             </Route>
             <Route path="/Playlists" element={<StandardLayoutWithNav />} >
               <Route index element={<Playlists  user={user}/>} />
             </Route>
-            <Route path="/Recent" element={<StandardLayoutWithNav />} >
-              <Route index element={<Recent />} />
-            </Route>
             <Route path="/Playelist" element={<StandardLayoutWithNav />} >
               <Route index element={<Playlist />} />
-            </Route>
-            <Route path="/Favourites" element={<StandardLayoutWithNav />} >
-              <Route index element={<Favourites />} />
-            </Route>
-            <Route path="/Recent" element={<StandardLayoutWithNav />} >
-              <Route index element={<StandardLayoutWithNav />} />
-            </Route>
-            <Route path="/Artists" element={<StandardLayoutWithNav />} >
-              <Route index element={<Artists />} />
             </Route>
           </Routes>
         </>
@@ -78,11 +77,17 @@ export default function App() {
             <Route path="/albums/:albumId/songs" element={<StandardLayoutWithNav />} >
               <Route index element={<AlbumSongs />} />
             </Route>
+            <Route path="/Artists" element={<StandardLayoutWithNav />} >
+              <Route index element={<Artists />} />
+            </Route>
+            <Route path="/artists/:artistId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<ArtistSongs />} />
+            </Route>
             <Route path="/Genres" element={<StandardLayoutWithNav />} >
               <Route index element={<Genres />} />
             </Route>
-            <Route path="/Artists" element={<StandardLayoutWithNav />} >
-              <Route index element={<Artists />} />
+            <Route path="/genres/:genreId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<GenreSongs />} />
             </Route>
           </Routes>
 
