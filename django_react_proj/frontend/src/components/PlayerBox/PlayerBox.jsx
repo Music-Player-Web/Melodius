@@ -3,7 +3,7 @@ import React from "react";
 import { Box, IconButton, Slider } from '@mui/material';
 import { PlayArrow, Pause, SkipNext, SkipPrevious } from '@mui/icons-material';
 
-function MusicPlayer({ currentSong }) {
+function PlayerBox({ currentSong }) {
   const [playing, setPlaying] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
   const audioRef = React.useRef();
@@ -53,4 +53,4 @@ function MusicPlayer({ currentSong }) {
   );
 };
 
-export default MusicPlayer;
+export default PlayerBox;

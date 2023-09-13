@@ -16,7 +16,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import AlbumIcon from '@mui/icons-material/Album';
 import ClassIcon from '@mui/icons-material/Class';
@@ -126,6 +126,7 @@ const Drawer = styled(MuiDrawer, {
 export default function MiniDrawer({user, setUser}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -137,6 +138,7 @@ export default function MiniDrawer({user, setUser}) {
   function handleLogOut() {
     logOut();
     setUser(null);
+    navigate('/');
   }
 
 
@@ -310,7 +312,7 @@ export default function MiniDrawer({user, setUser}) {
                 { user ? (
                  
                 <ListItemButton style={{ color: 'white'}}>
-                <Link style={{ textDecoration: "none" , color: "white"}} to="/Logout" onClick={handleLogOut}>
+                <Link style={{ textDecoration: "none" , color: "white"}} to="/" onClick={handleLogOut}>
               <ListItemIcon>
                     <LogoutIcon color="secondary" />
                   </ListItemIcon>
