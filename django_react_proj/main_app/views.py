@@ -137,26 +137,15 @@ def artists_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 ## artist details   
-@api_view(['GET', 'PUT'])
+@api_view(['GET'])
 def artist_detail(request, pk):
     try:
         artist = Artist.objects.get(pk=pk)
     except Artist.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
-        serializer = ArtistSerializer(artist, context={'request': request})
-        return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        serializer = ArtistSerializer(artist, data=request.data, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    else:
-        return Response({"detail": "Method not allowed"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    serializer = ArtistSerializer(artist, context={'request': request})
+    return Response(serializer.data)
     
 ## artist songs 
 @api_view(['GET', 'POST'])

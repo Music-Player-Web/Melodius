@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Favourites from "./pages/Favourites/Favourites";
 import Albums from "./pages/Albums/Albums";
+import AlbumSongs from "./pages/AlbumSongs/AlbumSongs";
 import Genres from "./pages/Genres/Genres";
 import Playlist from "./pages/Playlist/Playlist";
 import Playlists from "./pages/Playlists/Playlists";
@@ -35,6 +36,9 @@ export default function App() {
             </Route>
             <Route path="/Albums" element={<StandardLayoutWithNav />} >
               <Route index element={<Albums />} />
+            </Route>
+            <Route path="/albums/:albumId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<AlbumSongs />} />
             </Route>
             <Route path="/Genres" element={<StandardLayoutWithNav />} >
               <Route index element={<Genres />} />
@@ -70,6 +74,9 @@ export default function App() {
             </Route>
             <Route path="/Albums" element={<StandardLayoutWithNav />} >
               <Route index element={<Albums />} />
+            </Route>
+            <Route path="/albums/:albumId/songs" element={<StandardLayoutWithNav />} >
+              <Route index element={<AlbumSongs />} />
             </Route>
             <Route path="/Genres" element={<StandardLayoutWithNav />} >
               <Route index element={<Genres />} />
