@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from rest_framework import status
 from django.shortcuts import render
 from .models import User, Song, Artist, Genre, Playlist
+from rest_framework.parsers import MultiPartParser, FormParser
 from .serializers import *
 
 @api_view(['GET', 'POST'])
@@ -226,7 +227,64 @@ def songs_list_from_genre(request, genre_id=None):
             return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(['GET', 'POST'])
+def play_list(request):
+    print('play_list')
+    if request.method == 'GET':
+        data = Playlist.objects.all()
+
+        serializer = PlaylistSerializer(data, context={'request': request}, many=True)
+
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        print('request.data ==> ')
+        print (request.data)
+        serializer = PlaylistSerializer(data=request.data)
+        parser_classes = (MultiPartParser, FormParser)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+        print(serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+@api_view(['PUT', 'DELETE'])
+def playlist_detail(request, pk):
+    try:
+        playlist = Playlist.objects.get(pk=pk)
+    except Playlist.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'PUT':
+        serializer = PlaylistSerializer(Playlist, data=request.data,context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        playlist.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
 # our data #
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

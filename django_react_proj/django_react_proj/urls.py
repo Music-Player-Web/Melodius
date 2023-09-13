@@ -37,6 +37,9 @@ urlpatterns = [
     re_path(r'^api/genres/$', views.genres_list),
     re_path(r'^api/genres/([0-9])$', views.genre_detail ),
     re_path(r'^api/genres/([0-9])/songs$', views.songs_list_from_genre),
+    re_path(r'^api/playlists/$', views.play_list),
+    re_path(r'^api/playlists/([0-9])$', views.playlist_detail ),
+    
 
     # Token Authentication
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),

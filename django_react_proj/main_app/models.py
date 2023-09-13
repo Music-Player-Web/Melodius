@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class User(models.Model):
     name = models.CharField("Name", max_length=240)
@@ -43,10 +44,17 @@ class Song(models.Model):
     def __str__(self):
         return self.title
 
+def upload_to(instance, filename):
+    return 'playlistImg/{filename}'.format(filename=filename)
+
 class Playlist(models.Model):
+    user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name= models.CharField(max_length=100)
-    songs = models.ManyToManyField(Song)
+    songs = models.ManyToManyField(Song, blank=True, null=True)
+    image_url = models.ImageField(upload_to='playlistImg/', blank=True, null=True)
 
     def __str__(self):
         return self.name
+    
+    
     

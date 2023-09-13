@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Song, Album, Artist, Genre
+from .models import User, Song, Album, Artist, Genre, Playlist
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -12,7 +12,7 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = ('pk', 'title', 'artist', 'audio_file')
+        fields = ('pk', 'title', 'artist', 'audio_file', 'album', 'genre')
 
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,3 +29,10 @@ class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
         fields = ['pk', 'genre']
+
+class PlaylistSerializer(serializers.ModelSerializer):
+
+    image_url = serializers.ImageField(required=False)
+    class Meta:
+        model = Playlist
+        fields = ['pk', 'user', 'name','songs', 'image_url' ]
