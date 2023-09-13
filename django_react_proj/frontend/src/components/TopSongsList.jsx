@@ -19,8 +19,8 @@ class SongsList extends Component {
             <b>Oops, no songs here yet!</b>
           </Typography>
         ) : (
-          songs.slice(0, 4).map((song) => (
-            <Card key={song.pk} style={{ marginBottom: "10px" }}>
+          songs.slice(0, 4).map((song, index) => (
+            <Card key={index} style={{ marginBottom: "10px" }}>
               <CardContent>
                 <Typography variant="h6" component="h2">
                   {song.title}
