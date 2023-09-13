@@ -10,14 +10,10 @@ const StandardLayoutWithNav = function(props){
         <div className="main-body">
 
         <div className="musicOuterContainer">
-          <Grid container>
-            <Grid xs={12} md={8} order={{xs: 3, md:2}}>
+
               <Outlet></Outlet>
-            </Grid>
-            <Grid xs={12} md={4} order={{xs: 2, md:3}}>
               <Home />
-            </Grid>
-          </Grid>
+            
         </div>
 
         <Footer />

@@ -250,28 +250,7 @@ export default function MiniDrawer({user, setUser}) {
                 </Link>
               </ListItemButton>
             
-             { user ? (
-              <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
-                {/* <Link style={{ textDecoration: "none" }} to="/"> */}
-                <ListItemIcon>
-                  <LibraryBooksIcon color="third" />
-                </ListItemIcon>
-                
-                {/* </Link> */}
-                <Link style={{color:'red', textDecoration: 'none'}}>Your Library</Link>
-              </ListItemButton>
-             ): null}
-             {user ? (
-              <ListItemButton style={{ color: 'white' }}>
-                <Link style={{ textDecoration: "none", color: "white" }} to="/Recent">
-                  <ListItemIcon>
-                    <PlaylistPlayIcon color="secondary" />
-                  </ListItemIcon>
-                  Recent
-                </Link>
-              </ListItemButton>
-
-              ) : null }
+           
              
               <React.Fragment>
               {user ? (
@@ -286,29 +265,8 @@ export default function MiniDrawer({user, setUser}) {
                   
                 </ListItemButton>
                 ) : null }
-                {user ? (
-                <ListItemButton style={{ color: 'white' }}>
-
-                  <Link style={{ textDecoration: "none", color: "white" }} to="/Favourites">
-                    <ListItemIcon>
-                      <StarIcon color="secondary" />
-                    </ListItemIcon>
-                    Favourites
-                  </Link>
-                  
-                </ListItemButton>
-                ) : null }
-                {user ? (
-                <ListItemButton style={{ fontSize: "20px", color: 'white' }}>
-                  {/* <Link style={{ textDecoration: "none" }} to="/Playlists"> */}
-                  <ListItemIcon >
-                    <QueueMusicIcon color="third" />
-                  </ListItemIcon>
-                 
-                  {/* </Link> */}
-                  <Link style={{color:'red', textDecoration: 'none'}}>Your Playlists</Link>
-                </ListItemButton>
-                ) : null }
+                
+                
                
             
                 <Divider />
