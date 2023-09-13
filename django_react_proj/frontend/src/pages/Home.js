@@ -17,7 +17,7 @@ export default function Home() {
         color={"#333333"}
         image={"https://upload.wikimedia.org/wikipedia/en/d/d9/Imagine_Dragons_Mercury_album_cover_2022.webp"}
       />
-      <PlayerBox />
+     
     </>
   );
 
