@@ -1,4 +1,4 @@
-circle {
+ circle {
     transition: all 1s ease-in-out;
     transform: rotate(93deg);
     transform-origin: 50% 50%;
@@ -15,6 +15,7 @@ circle {
     align-items: center;
     margin-top: 100px;
   }
+
   
   @keyframes rotation {
     from {
@@ -23,4 +24,7 @@ circle {
     to {
       transform: rotate(359deg);
     }
-  }
+  } 
+
+
+ 

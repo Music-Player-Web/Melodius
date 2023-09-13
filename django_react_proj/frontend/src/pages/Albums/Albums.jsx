@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AlbumsList from "../../components/AlbumsList"
-
 import axios from "axios";
+import "./Albums.css";
 
 
 class Albums extends Component {
@@ -27,8 +27,9 @@ class Albums extends Component {
   render() {
     return (
       <>
-        <div style={{ marginTop: "100px"}}>
-        <AlbumsList
+      <h1>ALBUMS</h1>
+        <div className="albums-container">
+        <AlbumsList className="albums-box"
           albums={this.state.albums}
           resetState={this.resetState}
         />

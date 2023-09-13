@@ -220,8 +220,9 @@ export default function MiniDrawer({user, setUser}) {
                   <ListItemIcon>
                     <LibraryMusicIcon color="third" />
                   </ListItemIcon>
-                  <Link style={{color:'red', textDecoration: 'none'}}>Discover</Link>
-                </Link>
+                  </Link>
+              <Link style={{color:'red', textDecoration: 'none'}}>Discover</Link>
+
               </ListItemButton>
               <ListItemButton style={{ color: 'white' }}>
                 <Link  style={{ textDecoration: "none", color: "white"}} to="/Albums">
@@ -255,8 +256,9 @@ export default function MiniDrawer({user, setUser}) {
                 <ListItemIcon>
                   <LibraryBooksIcon color="third" />
                 </ListItemIcon>
-                <Link style={{color:'red', textDecoration: 'none'}}>Your Library</Link>
+                
                 {/* </Link> */}
+                <Link style={{color:'red', textDecoration: 'none'}}>Your Library</Link>
               </ListItemButton>
              ): null}
              {user ? (
@@ -302,8 +304,9 @@ export default function MiniDrawer({user, setUser}) {
                   <ListItemIcon >
                     <QueueMusicIcon color="third" />
                   </ListItemIcon>
-                 <Link style={{color:'red', textDecoration: 'none'}}>Your Playlists</Link>
+                 
                   {/* </Link> */}
+                  <Link style={{color:'red', textDecoration: 'none'}}>Your Playlists</Link>
                 </ListItemButton>
                 ) : null }
                

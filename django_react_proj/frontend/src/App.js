@@ -10,7 +10,7 @@ import Recent from "./pages/Recent/Recent";
 import Discover from "./pages/Discover/Discover";
 import AuthPage from './pages/AuthPage/AuthPage';
 import { getUser } from './utilities/users-service';
-import Artists from "./pages/Artists/Artist";
+import Artists from "./pages/Artists/Artists";
 import StandardLayoutWithNav from './pages/Layouts/StandardLayoutWithNav';
 import StandardLayoutWithOutNav from './pages/Layouts/StandardLayoutWithOutNav';
 import './App.css';

@@ -27,7 +27,7 @@ class AlbumsList extends Component {
             albums.map((album) => (
               <MUI.Grid item xs={12} sm={6} md={4} key={album.pk}>
                 <Card>
-                  <CardMedia component="img" height="140" image={album.image_url} alt={album.name} />
+                  <CardMedia component="img" height="200" image={album.image_url} alt={album.name} />
                   <CardContent>
                     <Typography variant="h6" component="h2">
                       {album.name}
