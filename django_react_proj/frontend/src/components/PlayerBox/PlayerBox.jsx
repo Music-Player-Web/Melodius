@@ -3,7 +3,7 @@ import React from "react";
 import { Box, IconButton, Slider } from '@mui/material';
 import { PlayArrow, Pause, SkipNext, SkipPrevious } from '@mui/icons-material';
 
-const MusicPlayer = ({ currentSong }) => {
+function MusicPlayer({ currentSong }) {
   const [playing, setPlaying] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
   const audioRef = React.useRef();
