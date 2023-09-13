@@ -94,9 +94,11 @@ class Discover extends Component {
                 flexWrap: "wrap"
               }}
             >
-              {data.recommendedTracks.map((track) => (
+              {data.recommendedTracks.map((track, index) => {
+                console.log(index) 
+                return (
                 <div
-                  key={track.name}
+                  key={index}
                   style={{ width: "30%", textAlign: "center" }}
                 >
                   <img
@@ -106,7 +108,7 @@ class Discover extends Component {
                   />
                   <p>{track.name}</p>
                 </div>
-              ))}
+              )})}
             </div>
           </MUI.Grid>
         </MUI.Grid>

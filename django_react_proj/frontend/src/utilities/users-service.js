@@ -22,12 +22,12 @@ export function getToken() {
   console.log(token);
   if (!token) return null;
   // Let's check if token has expired...
-  const payload = JSON.parse(atob(token.split('.')[1]));
-  if (payload.exp < Date.now() / 1000) {
-    // Token has expired
-    localStorage.removeItem('token');
-    return null;
-  }
+  // const payload = JSON.parse(atob(token.split('.')[1]));
+  // if (payload.exp < Date.now() / 1000) {
+  //   // Token has expired
+  //   localStorage.removeItem('token');
+  //   return null;
+  // }
   return token;
 }
 
