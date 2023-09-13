@@ -1,23 +1,20 @@
 import React, { Component, Fragment } from "react";
-import { Modal, ModalHeader, Button, ModalFooter } from "reactstrap";
-
+import { Button, Dialog, DialogTitle, DialogActions } from "@mui/material";
 import axios from "axios";
-
-import { API_URL } from "../constants";
 
 class ConfirmRemovalModal extends Component {
   state = {
-    modal: false
+    open: false
   };
 
   toggle = () => {
     this.setState(previous => ({
-      modal: !previous.modal
+      open: !previous.open
     }));
   };
 
-  deleteStudent = pk => {
-    axios.delete(API_URL + pk).then(() => {
+  deletePlaylist= pk => {
+    axios.delete("http://localhost:8000/api/playlists/"+ pk).then(() => {
       this.props.resetState();
       this.toggle();
     });
@@ -26,27 +23,26 @@ class ConfirmRemovalModal extends Component {
   render() {
     return (
       <Fragment>
-        <Button color="danger" onClick={() => this.toggle()}>
+        <Button color="error" onClick={() => this.toggle()}>
           Remove
         </Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>
-            Do you really wanna delete the student?
-          </ModalHeader>
+        <Dialog open={this.state.open} onClose={this.toggle}>
+          <DialogTitle>
+            Do you really wanna delete the playlist?
+          </DialogTitle>
 
-          <ModalFooter>
-            <Button type="button" onClick={() => this.toggle()}>
+          <DialogActions>
+            <Button onClick={() => this.toggle()}>
               Cancel
             </Button>
             <Button
-              type="button"
               color="primary"
-              onClick={() => this.deleteStudent(this.props.pk)}
+              onClick={() => this.deletePlaylist(this.props.pk)}
             >
               Yes
             </Button>
-          </ModalFooter>
-        </Modal>
+          </DialogActions>
+        </Dialog>
       </Fragment>
     );
   }

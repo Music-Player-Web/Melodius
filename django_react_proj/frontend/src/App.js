@@ -44,7 +44,7 @@ export default function App() {
               <Route index element={<Genres />} />
             </Route>
             <Route path="/Playlists" element={<StandardLayoutWithNav />} >
-              <Route index element={<Playlists />} />
+              <Route index element={<Playlists  user={user}/>} />
             </Route>
             <Route path="/Recent" element={<StandardLayoutWithNav />} >
               <Route index element={<Recent />} />
