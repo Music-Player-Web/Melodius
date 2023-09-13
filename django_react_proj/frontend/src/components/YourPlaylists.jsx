@@ -39,6 +39,7 @@ class YourPlaylists extends Component {
     console.log(playlists)
     return (
       <>
+      <h1>PlayList</h1>
         <ThemeProvider theme={darkTheme}>
           <MUI.Grid container spacing={3}>
             {!playlists || playlists.length <= 0 ? (

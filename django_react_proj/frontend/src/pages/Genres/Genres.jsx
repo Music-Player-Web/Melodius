@@ -22,6 +22,7 @@ class Genres extends Component {
   render() {
     return (
       <>
+      <h1>Genres</h1>
         <div style={{ marginTop: "100px" }}>
           <GenresList
             genres={this.state.genres}
