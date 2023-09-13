@@ -36,7 +36,7 @@ class ArtistsList extends Component {
                   <CardActions>
                     <Button
                       component={Link}
-                      to={`/artists/${artist.pk}`}
+                      to={`/artists/${artist.pk}/songs`}
                       size="small"
                       color="primary"
                     >

@@ -212,12 +212,11 @@ def genre_detail(request, pk):
 def songs_list_from_genre(request, genre_id=None):
     if request.method == 'GET':
         if genre_id:
-            data = Genre.objects.filter(genre__id=genre_id)
+            data = Song.objects.filter(genre__id=genre_id)
         else:
-            data = Genre.objects.all()
+            data = Song.objects.all()
 
         serializer = SongSerializer(data, context={'request': request}, many=True)
-
         return Response(serializer.data)
 
     elif request.method == 'POST':
