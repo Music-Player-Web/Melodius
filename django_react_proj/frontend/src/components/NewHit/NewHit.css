@@ -1,0 +1,19 @@
+.newhit-container {
+  margin-top: 100px;
+ 
+}
+
+.newhit-container .MuiGrid-container > .MuiPaper-root {
+  transition: background-color 0.3s;
+  padding:13px;
+}
+.snewhit-container .MuiPaper-root {
+  color:white;
+}
+
+.newhit-container .MuiPaper-root {
+  background-color: #333333;
+}
+.newhit-container .MuiPaper-root:hover {
+  background-color: rgb(179, 178, 179);
+}
