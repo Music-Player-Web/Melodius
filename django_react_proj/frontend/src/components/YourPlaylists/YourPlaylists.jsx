@@ -40,8 +40,8 @@ class YourPlaylists extends Component {
     console.log(playlists)
     return (
       <>
-      <h1>PlayList</h1>
       <div className="yourplaylists-container">
+    
         <ThemeProvider theme={darkTheme}>
           <MUI.Grid container spacing={3}>
             {!playlists || playlists.length <= 0 ? (
@@ -68,9 +68,9 @@ class YourPlaylists extends Component {
                     </CardContent>
                     <CardActions>
 
-                      <MUI.Button onClick={() => this.handleOpenEditDialog(playlist)}>Edit Playlist</MUI.Button>
+                      <MUI.Button onClick={() => this.handleOpenEditDialog(playlist)} style={{color:'red'}}>Edit Playlist</MUI.Button>
                       &nbsp;&nbsp;
-                      <MUI.Button onClick={() => this.handleOpenDeleteDialog(playlist)}>Delete Playlist</MUI.Button>
+                      <MUI.Button onClick={() => this.handleOpenDeleteDialog(playlist)} style={{color:'red'}}>Delete Playlist</MUI.Button>
 
                     </CardActions>
                   </Card>
