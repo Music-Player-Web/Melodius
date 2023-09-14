@@ -26,8 +26,8 @@ function PlayerBox({ currentSong }) {
   };
 
   return (
-    <Grid container  className="progressCircle" alignItems="center" columnSpacing={2}>
-      <Grid item xs={12} md={4} order={{ xs: 2, md: 3 }}>
+    <Grid container  className="progressCircle"   sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      
         {/* Your ProgressCircle component */}
         <ProgressCircle
           percentage={100}
@@ -36,15 +36,15 @@ function PlayerBox({ currentSong }) {
           color={"#333333"}
           image={"https://upload.wikimedia.org/wikipedia/en/d/d9/Imagine_Dragons_Mercury_album_cover_2022.webp"}
         />
-      </Grid>
-      <Grid  item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+     
+      <Grid  item xs={12} md={6} order={{ xs: 3, md: 2 }}>
         <Box className="playerBoxContainer" sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <h2>Music Player</h2>
           {currentSong && (
             <div>
               {/* <img className="album-cover" src={album.image_url} alt="Album Cover" /> */}
-              <h3>Title: {currentSong.title}</h3>
-              <h4>Artist: {currentSong.artist}</h4>
+              <h2>Title: {currentSong.title}</h2>
+              <h3>Artist: {currentSong.artist}</h3>
               {/* Render the audio element without controls */}
               <audio
                 ref={audioRef}
@@ -55,17 +55,17 @@ function PlayerBox({ currentSong }) {
               {/* Render custom play/pause button */}
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <IconButton>
-                  <SkipPrevious />
+                  <SkipPrevious style={{color:'white', fontSize:'45px'}}/>
                 </IconButton>
                 <IconButton onClick={handlePlayPause}>
-                  {playing ? <Pause /> : <PlayArrow />}
+                  {playing ? <Pause  style={{fontSize:'50px', color:'white'}}/> : <PlayArrow style={{fontSize:'50px', color:'white'}} />}
                 </IconButton>
                 <IconButton>
-                  <SkipNext />
+                  <SkipNext style={{color:'white', fontSize:'45px'}} />
                 </IconButton>
               </Box>
               {/* Render progress slider */}
-              <Slider value={progress} onChange={(e, newValue) => setProgress(newValue)} />
+              <Slider style={{color:'red'}}value={progress} onChange={(e, newValue) => setProgress(newValue)} />
             </div>
           )}
         </Box>

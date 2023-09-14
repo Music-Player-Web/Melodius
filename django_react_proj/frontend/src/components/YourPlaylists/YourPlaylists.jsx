@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import * as MUI from "@mui/material";
-import ConfirmRemovalModal from "./ConfirmRemovalModal";
+import ConfirmRemovalModal from "../ConfirmRemovalModal";
 import { Card, CardContent, CardMedia, Typography, CardActions, Button, createTheme, ThemeProvider } from "@mui/material";
-import EditPlayListForm from "./EditPlayListForm";
+import EditPlayListForm from "../EditPlayListForm";
+import './YourPlaylists.css';
 
 class YourPlaylists extends Component {
   state = {
@@ -40,6 +41,7 @@ class YourPlaylists extends Component {
     return (
       <>
       <h1>PlayList</h1>
+      <div className="yourplaylists-container">
         <ThemeProvider theme={darkTheme}>
           <MUI.Grid container spacing={3}>
             {!playlists || playlists.length <= 0 ? (
@@ -97,6 +99,7 @@ class YourPlaylists extends Component {
             <Button onClick={this.handleCloseDeleteDialog}>Close</Button>
           </MUI.DialogActions>
         </MUI.Dialog>
+        </div>
       </>
     );
   }
