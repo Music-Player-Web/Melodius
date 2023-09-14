@@ -1,4 +1,4 @@
-.signin-container{
+.signin-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,8 @@
   background: #404040;
   border-radius: 8px;
   overflow: hidden;
-  margin-top: 100px;;
+  margin-top: 100px;
+  ;
 }
 
 .box1::before {
@@ -22,7 +23,7 @@
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+  background: linear-gradient(0deg, transparent, transparent, black, black, black);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -36,7 +37,7 @@
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
+  background: linear-gradient(0deg, transparent, transparent, black, black, black);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -55,7 +56,7 @@
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #e70808, #e70808, #e70808);
+  background: linear-gradient(0deg, transparent, transparent, red, red, red);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -69,7 +70,7 @@
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg, transparent, transparent, #e70808, #e70808, #e70808);
+  background: linear-gradient(0deg, transparent, transparent, red, red, red);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -89,7 +90,7 @@
 .box1 form {
   position: absolute;
   inset: 4px;
-  background:#41403f;
+  background: #41403f;
   border-radius: 8px;
   padding: 50px 40px;
   z-index: 2;
@@ -102,7 +103,7 @@
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.1em;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .box1 form .inputBox {
@@ -178,9 +179,6 @@
   opacity: 0.8;
 }
 
-.btn-primary{
+.btn-primary {
   padding-top: 15px;
 }
-
-
-
