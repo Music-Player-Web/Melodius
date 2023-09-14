@@ -47,7 +47,7 @@ class AlbumsList extends Component {
                       size="small"
                       color="primary"
                     >
-                     <LyricsIcon style={{color:'red'}}/> <p style={{color:'red'}}>View Songs</p>
+                      <LyricsIcon style={{ color: 'red' }} /> <p style={{ color: 'red' }}>View Songs</p>
                     </Button>
                   </CardActions>
                 </Card>

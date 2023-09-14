@@ -26,7 +26,7 @@ class ArtistsList extends Component {
     });
 
     // Get 4 random artists
-    const randomArtists = artists.sort(() => 0.5 - Math.random()).slice(0, 4);
+    const randomArtists = artists.sort(() => 0.5 - Math.random()).slice(0, 6);
 
     return (
      

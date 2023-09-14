@@ -1,83 +1,75 @@
-import { Card, CardContent, Typography, CardActions, Button, Grid } from "@mui/material";
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import './RecommendedSongs.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import * as MUI from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, CardActions, Button, createTheme, ThemeProvider } from "@mui/material";
+import LyricsIcon from '@mui/icons-material/Lyrics';
 
-const SongsList = ({ songs, onSongSelect }) => {
-  const [albumImages, setAlbumImages] = useState({});
+class AlbumsList extends Component {
+  render() {
+    let albums = this.props.albums;
 
-  const handlePlay = (song) => {
-    onSongSelect(song);
-  };
+    // Create a dark mode theme
+    const darkTheme = createTheme({
+      palette: {
+        mode: "dark",
+      },
+    });
 
-  // fetch the image album
-  useEffect(() => {
-    const fetchAlbumImages = async () => {
-      const albumIds = songs.map((song) => song.album);
-      const albumImagePromises = albumIds.map((albumId) =>
-        axios.get(`http://localhost:8000/api/albums/${albumId}`)
-      );
-
-      try {
-        const albumImageResponses = await Promise.all(albumImagePromises);
-        const albumImageMap = {};
-
-        albumImageResponses.forEach((response) => {
-          const album = response.data;
-          albumImageMap[album.id] = album.image_url;
-        });
-
-        setAlbumImages(albumImageMap);
-      } catch (error) {
-        console.error("Error fetching album images:", error);
+    // Select three random albums
+    if (albums.length > 3) {
+      const randomIndices = new Set();
+      while (randomIndices.size < 3) {
+        randomIndices.add(Math.floor(Math.random() * albums.length));
       }
-    };
+      albums = Array.from(randomIndices).map(i => albums[i]);
+    }
 
-    fetchAlbumImages();
-  }, [songs]);
+    return (
+      <div className="artists-container">
+        <h1 style={{ marginBottom: "20px" }} >Top Albums</h1>
+        <ThemeProvider theme={darkTheme}>
+          <MUI.Grid container spacing={3}>
+            {!albums || albums.length <= 0 ? (
+              <MUI.Grid item xs={12}>
+                <MUI.Typography variant="body1" align="center">
+                  <b>Oops, no albums available!</b>
+                </MUI.Typography>
+              </MUI.Grid>
+            ) : (
+              albums.map((album) => (
+                <MUI.Grid item xs={12} sm={6} md={4} key={album.pk}>
+                  <Card>
+                    <CardMedia component="img" height="200" image={album.image_url} alt={album.name} />
+                    <CardContent>
+                      <Typography variant="h6" component="h2">
+                        {album.name}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        Release Date: {album.release_date}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        Total Songs: {album.total_songs}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        component={Link}
+                        to={`/albums/${album.pk}/songs`}
+                        size="small"
+                        color="primary"
+                      >
+                        <LyricsIcon style={{ color: 'red' }} /> <p style={{ color: 'red' }}>View Songs</p>
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </MUI.Grid>
+              ))
+            )}
+          </MUI.Grid>
+        </ThemeProvider>
+      </div>
+    );
+  }
+}
 
-  return (
-    <div className="recommendedsongs-container">
-         <h1 style={{marginBottom: "20px"}} >Top Songs</h1>
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {!songs || songs.length <= 0 ? (
-        <Typography variant="body1" align="center">
-          <b>Oops, no songs here yet!</b>
-        </Typography>
-      ) : (
-        songs.slice(0, 6).map((song, index) => (
-          <Card style={{ marginBottom: '10px' }}>
-          <CardContent>
-            <Grid container spacing={2}>
-              <Grid item xs={3} display="flex" justifyContent="center" alignItems="center">
-                <img src={albumImages[song.album.id]} alt="Song" style={{  marginLeft: '20px' , width:'100px', height:'100px' }} />
-              </Grid>
-              <Grid item xs={3} display="flex" justifyContent="center" alignItems="center">
-                <Typography variant="h6" component="h2" style={{  marginLeft: '20px' ,}} >
-                  {song.title}
-                </Typography>
-              </Grid>
-              <Grid item xs={4} display="flex" justifyContent="center" alignItems="center">
-                <Typography variant="body2" color="white">
-                  {song.artist}
-                </Typography>
-              </Grid>
-              <Grid item xs={2} display="flex" justifyContent="center" alignItems="center">
-                <CardActions>
-                  <Button onClick={() => handlePlay(song)} size="small">
-                    <PlayCircleOutlineIcon style={{ color: 'white' }} />
-                  </Button>
-                </CardActions>
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
-        ))
-      )}
-    </div>
-    </div>
-  );
-};
-
-export default SongsList;
+export default AlbumsList;
