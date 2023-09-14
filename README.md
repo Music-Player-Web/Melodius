@@ -42,11 +42,31 @@ I want to have a user-friendly admin panel where I can manage the music content 
 
 
 1. Play full audio tracks.
-2. Control playback (pause, volume, shuffle, etc).
-3. Add or edit your playlists.
-4. See your recently played tracks and your top artists.
-5. Search tracks, albums, artists and playlists.
+2. Add or edit your playlists.
+3. View hit song, top artists and recommended songs.
+4. View all artist, albums. 
    
 ## Screenshots of the Website :
 
+![Screenshot (78)](https://github.com/Music-Player-Web/melodius/assets/140065051/b752c9ab-0ce1-454b-982e-af590ca407e2)
+
+***
+
+![Screenshot (75)](https://github.com/Music-Player-Web/melodius/assets/140065051/65207127-3192-46ba-86ab-a45584a2b68b)
+
+***
+
+![Screenshot (76)](https://github.com/Music-Player-Web/melodius/assets/140065051/0476e011-72f3-4d4a-b4d5-ff36cd8f325e)
+
+***
+
+
+![Screenshot (77)](https://github.com/Music-Player-Web/melodius/assets/140065051/cfafe2c6-9c7b-4a2f-a974-9090145f715c)
+
 ## Future Works : 
+
+1. Use Spotify API.
+2. Add more feature such as view the recent played songs and playlist, view favourite or liked songs.
+3. Add a search bar to search the songs, albums , artists and playlists. 
+4. Polish the design abit more
+   
