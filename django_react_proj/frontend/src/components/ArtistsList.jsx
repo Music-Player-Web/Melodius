@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as MUI from "@mui/material";
 import { Card, CardContent, CardMedia, Typography, CardActions, Button, createTheme, ThemeProvider } from "@mui/material";
+import LyricsIcon from '@mui/icons-material/Lyrics';
 
 class ArtistsList extends Component {
   render() {
@@ -40,7 +41,7 @@ class ArtistsList extends Component {
                       size="small"
                       color="primary"
                     >
-                      View Artist
+                     <LyricsIcon style={{color:'red'}}/> <p style={{color:'red'}}>View Songs</p>
                     </Button>
                   </CardActions>
                 </Card>

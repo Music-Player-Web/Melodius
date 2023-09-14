@@ -5,7 +5,8 @@ import Grid from "@mui/material/Grid";
 import NewPlaylistForm from "../../components/NewPlayListForm";
 import YourPlaylists from "../../components/YourPlaylists/YourPlaylists";
 import axios from "axios";
-import { Button } from "@mui/material";;
+import { Button } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
 
 class Playlists extends Component {
@@ -38,19 +39,20 @@ class Playlists extends Component {
   render() {
     return (
       <>
-      
+       
       <Container style={{ marginTop: "100px" }}>
         <Grid container spacing={3}>
         
           <Grid item xs={12}>
-          
+          <h1>PlayLists</h1>
+          <MUI.Button
+            resetState={this.props.resetState} onClick={this.handleOpenDialog} style={{color:'white', fontSize:'20px'}}><AddIcon/>Create New Playlist</MUI.Button>
             <YourPlaylists
               playlists={this.state.playlists}
               resetState={this.resetState}
               user = {this.props.user}
             />
-            <MUI.Button
-            resetState={this.props.resetState} onClick={this.handleOpenDialog}>Create New Playlist</MUI.Button>
+            
           </Grid>
           
         </Grid>
