@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SignIn from '../../components/Auth/SignIn';
 import SignUp from '../../components/Auth/SignUp';
 import { useNavigate } from 'react-router-dom';
-import { Grid, colors } from '@mui/material';
+import { Grid, Typography, Box } from '@mui/material';
 import './AuthPage.css';
 
 export default function AuthPage({ setUser }) {
@@ -16,6 +16,12 @@ export default function AuthPage({ setUser }) {
 
   return (
     <Grid className="AuthPage" >
+      <div>
+        <Box component="img" src="/images/logo.png" alt="Logo" sx={{ width: "60px", margin: "10px", borderRadius: "50%" }} />
+        <Typography color="white" variant='h4' fontFamily="Lato">
+          Melodius
+        </Typography>
+      </div>
 
       {showLogin ? <SignIn setUser={setUser} onSuccess={handleSuccess} /> : <SignUp setUser={setUser} onSuccess={handleSuccess} />}
       <div className='toggle-link'>
