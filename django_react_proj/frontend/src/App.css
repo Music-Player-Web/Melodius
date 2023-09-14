@@ -1,5 +1,6 @@
 body {
   background: linear-gradient(45deg, #7b7678 30%, #32302f 90%)!important;
+  font-family: "Lato" !important;
 }
 
 .moo > .MuiPaper-root {
@@ -8,4 +9,8 @@ body {
 
 .musicOuterContainer {
   margin: 20px 70px;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
 }

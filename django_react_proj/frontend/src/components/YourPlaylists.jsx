@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as MUI from "@mui/material";
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 import { Card, CardContent, CardMedia, Typography, CardActions, Button, createTheme, ThemeProvider } from "@mui/material";
-import NewPlayListForm from "./NewPlayListForm";
+import EditPlayListForm from "./EditPlayListForm";
 
 class YourPlaylists extends Component {
   state = {
@@ -81,7 +81,7 @@ class YourPlaylists extends Component {
         <MUI.Dialog open={this.state.editDialogOpen} onClose={this.handleCloseEditDialog}>
           <MUI.DialogTitle>Edit Playlist</MUI.DialogTitle>
           <MUI.DialogContent>
-            <NewPlayListForm  user={this.props.user}/>
+            <EditPlayListForm  user={this.props.user}/>
           </MUI.DialogContent>
           <MUI.DialogActions>
             <Button onClick={this.handleCloseEditDialog}>Close</Button>

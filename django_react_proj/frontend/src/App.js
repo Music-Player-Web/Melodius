@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Favourites from "./pages/Favourites/Favourites";
 import Albums from "./pages/Albums/Albums";
 import AlbumSongs from "./pages/AlbumSongs/AlbumSongs";
 import Genres from "./pages/Genres/Genres";
 import Playlist from "./pages/Playlist/Playlist";
 import Playlists from "./pages/Playlists/Playlists";
-import Recent from "./pages/Recent/Recent";
 import Discover from "./pages/Discover/Discover";
 import AuthPage from './pages/AuthPage/AuthPage';
 import { getUser } from './utilities/users-service';
@@ -16,14 +14,15 @@ import StandardLayoutWithOutNav from './pages/Layouts/StandardLayoutWithOutNav';
 import './App.css';
 import ArtistSongs from "./pages/ArtistSongs/ArtistSongs";
 import GenreSongs from "./pages/GenreSongs/GenreSongs";
+import "typeface-oswald";
 
 export default function App() {
-  const [currentSong, setCurrentSong] = useState(null);
+  // const [currentSong, setCurrentSong] = useState(null);
   const [user, setUser] = useState(getUser());
 
-  const handlePlay = (song) => {
-    setCurrentSong(song);
-  };
+  // const handlePlay = (song) => {
+  //   setCurrentSong(song);
+  // };
 
   return (
     <Router>

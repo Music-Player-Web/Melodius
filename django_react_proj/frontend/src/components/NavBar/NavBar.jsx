@@ -15,20 +15,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
-import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import AlbumIcon from '@mui/icons-material/Album';
 import ClassIcon from '@mui/icons-material/Class';
-import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import StarIcon from '@mui/icons-material/Star';
-import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import LogoutIcon from '@mui/icons-material/Logout';
-import LoginIcon from '@mui/icons-material/Login';
 import { logOut } from '../../utilities/users-service';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import { Typography } from '@mui/material';
+import "typeface-lato";
 
 
 const drawerWidth = 240;
@@ -142,11 +138,11 @@ export default function MiniDrawer({user, setUser}) {
   }
 
 
-  const [searchQuery, setSearchQuery] = React.useState('');
+  // const [searchQuery, setSearchQuery] = React.useState('');
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
+  // const handleSearchChange = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -168,22 +164,11 @@ export default function MiniDrawer({user, setUser}) {
               <MenuIcon />
             </IconButton>
             {/* <Typography variant="h6" noWrap component="div"> */}
-            <img style={{ width: "40px" }}
-              src="./images/logo.png"
-              alt="Logo"
-              className="logo"
-              id="SideBar-logo"
-            />
+            <Box component="img" src="/images/logo.png" alt="Logo" sx={{ width: "60px" , margin: "10px"}} />
+            <Typography variant='h4' fontFamily="Lato">
+              Melodius
+            </Typography>
             {/* </Typography> */}
-            <TextField
-              label="Search"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              InputLabelProps={{
-                style: { color: 'black' },
-              }}
-              style={{ background: 'white', margin: '10px' }}
-            />
             { !user ? (
               <List sx={{flexGrow: 1}}>
               <ListItem>
@@ -212,7 +197,7 @@ export default function MiniDrawer({user, setUser}) {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List style={{ background: '#333333' }}>
+          <List style={{ background: '#333333', marginTop:"20px" }}>
             <React.Fragment>
 
               <ListItemButton style={{ fontSize: "20px", color: 'white' }}>

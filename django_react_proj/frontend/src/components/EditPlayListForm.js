@@ -1,48 +1,51 @@
-import * as MUI from "@mui/material";
 import React from "react";
-import axios from "axios";
 import { Button, TextField, FormControl, FormLabel } from "@mui/material";
+import axiosInstance from "axios";
 
-class NewPlayListForm extends React.Component {
+class EditPlayListForm extends React.Component {
   state = {
     pk: 0,
     name: "",
-    image_url: "",
+    user: this.props.user.id,
   };
-
 
   componentDidMount() {
     if (this.props.playlist) {
-      const { pk, name, image_url } = this.props.playlist;
-      this.setState({ pk, name, image_url });
+      const { pk, name } = this.props.playlist;
+      this.setState({ pk, name });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  createPlaylist = e => {
+  updatePlaylist = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8000/api/playlists/", this.state).then(() => {
-      this.props.resetState();
-    });
+
+    const { pk, name, user } = this.state;
+
+    const updatedPlaylist = {
+      pk,
+      name,
+      user,
+    };
+
+    try {
+      await axiosInstance.put(`http://localhost:8000/api/playlists/${pk}`, updatedPlaylist);
+      // TODO: Handle success
+    } catch (error) {
+      // TODO: Handle error
+    }
   };
 
-  editPlaylist = e => {
-    e.preventDefault();
-    axios.put("http://localhost:8000/api/playlists/" + this.state.pk, this.state).then(() => {
-      this.props.resetState();
-    });
-  };
-
-  defaultIfEmpty = value => {
+  defaultIfEmpty = (value) => {
     return value === "" ? "" : value;
   };
 
   render() {
     return (
-      <form onSubmit={this.props.playlist ? this.editPlaylist : this.createPlaylist}>
+      <form onSubmit={this.updatePlaylist}>
         <FormControl>
           <FormLabel>Playlist Name</FormLabel>
           <TextField
@@ -51,21 +54,13 @@ class NewPlayListForm extends React.Component {
             value={this.defaultIfEmpty(this.state.name)}
           />
         </FormControl>
-        <FormControl>
-          <FormLabel>Image</FormLabel>
-          <TextField
-            type="file"
-            name="image_url"
-            onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.image_url)}
-          />
-        </FormControl>
+        <input type="hidden" name="user" value={this.state.user} />
         <Button type="submit" variant="contained" color="primary">
-          Send
+          Update
         </Button>
       </form>
     );
   }
 }
 
-export default NewPlayListForm;
+export default EditPlayListForm;
