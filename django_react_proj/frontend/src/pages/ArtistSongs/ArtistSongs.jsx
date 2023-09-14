@@ -30,7 +30,7 @@ function ArtistSongs() {
         <Grid container>
           <Grid item xs={12} md={8} order={{xs:2, md:1}}>
             {/* Place your ProgressCircle component here */}
-            <PlayerBox currentSong={currentSong}/>
+            <PlayerBox songs={artistSongs} currentSong={currentSong}/>
           </Grid>
           <Grid item xs={12} md={8} order={{xs:1, md:2}}>
             {/* Your SongsList component */}
