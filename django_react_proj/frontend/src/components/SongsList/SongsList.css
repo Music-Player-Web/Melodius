@@ -1,0 +1,19 @@
+.songlist-container {
+    margin-top: 100px;
+   
+  }
+  
+  .songlist-container .MuiGrid-container > .MuiPaper-root {
+    transition: background-color 0.3s;
+    padding:13px;
+  }
+  .songlist-container .MuiPaper-root {
+    color:white;
+  }
+
+  .songlist-container .MuiPaper-root {
+    background-color: #333333;
+  }
+  .songlist-container .MuiPaper-root:hover {
+    background-color: rgb(179, 178, 179);
+  }

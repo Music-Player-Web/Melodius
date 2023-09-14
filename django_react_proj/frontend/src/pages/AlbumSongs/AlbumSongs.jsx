@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SongsList from "../../components/SongsList";
+import SongsList from "../../components/SongsList/SongsList";
 import PlayerBox from "../../components/PlayerBox/PlayerBox";
 import Grid from '@mui/material/Grid';
 import { useParams } from 'react-router-dom';
