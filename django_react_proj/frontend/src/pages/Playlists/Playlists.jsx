@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import NewPlaylistForm from "../../components/NewPlayListForm";
-import YourPlaylists from "../../components/YourPlaylists";
+import YourPlaylists from "../../components/YourPlaylists/YourPlaylists";
 import axios from "axios";
 import { Button } from "@mui/material";;
 
@@ -37,17 +37,22 @@ class Playlists extends Component {
 
   render() {
     return (
+      <>
+      
       <Container style={{ marginTop: "100px" }}>
         <Grid container spacing={3}>
+        
           <Grid item xs={12}>
+          
             <YourPlaylists
               playlists={this.state.playlists}
               resetState={this.resetState}
               user = {this.props.user}
             />
+            <MUI.Button
+            resetState={this.props.resetState} onClick={this.handleOpenDialog}>Create New Playlist</MUI.Button>
           </Grid>
-          <MUI.Button
-            resetState={this.props.resetState} onClick={this.handleOpenDialog}>Create Playlist</MUI.Button>
+          
         </Grid>
         <MUI.Dialog open={this.state.isOpen} onClose={this.handleCloseDialog}>
           <MUI.DialogTitle>Create Playlist</MUI.DialogTitle>
@@ -59,6 +64,7 @@ class Playlists extends Component {
           </MUI.DialogActions>
         </MUI.Dialog>
       </Container>
+      </>
     );
   }
 }

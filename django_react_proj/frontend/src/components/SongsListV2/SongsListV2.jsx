@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Grid, CardContent, Typography, CardActions, Button } from "@mui/material";
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import axios from "axios";
+import './SongsListV2.css';
 
 function SongsList({ songs, onSongSelect }) {
   const [albumImages, setAlbumImages] = useState({});
@@ -37,6 +38,7 @@ function SongsList({ songs, onSongSelect }) {
   }, [songs]);
 
   return (
+    <div className="songlistv2-container">
     <Grid container spacing={2}>
       {!songs || songs.length <= 0 ? (
         <Grid item xs={12}>
@@ -59,14 +61,14 @@ function SongsList({ songs, onSongSelect }) {
                     </Typography>
                   </Grid>
                   <Grid item xs={4} display="flex" justifyContent="center" alignItems="center">
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="white">
                       {song.artist}
                     </Typography>
                   </Grid>
                   <Grid item xs={2} display="flex" justifyContent="center" alignItems="center">
                     <CardActions>
                       <Button onClick={() => handlePlay(song)} size="small">
-                        <PlayCircleOutlineIcon style={{ color: 'black' }} />
+                        <PlayCircleOutlineIcon style={{ color: 'white' }} />
                       </Button>
                     </CardActions>
                   </Grid>
@@ -77,6 +79,7 @@ function SongsList({ songs, onSongSelect }) {
         ))
       )}
     </Grid>
+    </div>
   );
 };
 
