@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as MUI from "@mui/material";
+import './TopArtists.css';
 import {
   Card,
   CardContent,
@@ -27,6 +28,9 @@ class ArtistsList extends Component {
     const randomArtists = artists.sort(() => 0.5 - Math.random()).slice(0, 4);
 
     return (
+     
+      <div className="artists-container">
+         <h1 style={{marginBottom: "20px"}} >Top Artists</h1>
       <ThemeProvider theme={darkTheme}>
         <MUI.Grid container spacing={3}>
           {!randomArtists || randomArtists.length <= 0 ? (
@@ -66,6 +70,7 @@ class ArtistsList extends Component {
           )}
         </MUI.Grid>
       </ThemeProvider>
+      </div>
     );
   }
 }

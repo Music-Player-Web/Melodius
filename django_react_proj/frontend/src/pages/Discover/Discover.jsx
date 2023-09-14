@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import * as MUI from "@mui/material";
 import axios from "axios";
-import TopArtist from "../../components/TopArtists";
-import NewHit from "../../components/NewHit";
-import RecommendedSongs from "../../components/RecommendedSongs";
+import TopArtist from "../../components/TopArtists/TopArtists";
+import NewHit from "../../components/NewHit/NewHit";
+import RecommendedSongs from "../../components/RecommendedSongs/RecommendedSongs";
 import PlayerBox from "../../components/PlayerBox/PlayerBox";
 
 class Discover extends Component {

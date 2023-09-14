@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Grid, CardContent, Typography, CardActions, Button } from "@mui/material";
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import axios from "axios";
+import './NewHit.css';
 
 function NewHit({ songs, onSongSelect }) {
   const [albumImages, setAlbumImages] = useState({});
@@ -42,6 +43,9 @@ function NewHit({ songs, onSongSelect }) {
   }, [songs]);
 
   return (
+   
+    <div className="newhit-container">
+      <h1 style={{marginBottom: "20px"}} >New Hit</h1>
     <Grid container spacing={2}>
       {!randomSong ? (
         <Grid item xs={12}>
@@ -58,19 +62,19 @@ function NewHit({ songs, onSongSelect }) {
                   <img src={albumImages[randomSong.album.id]} alt="Song" style={{ marginRight: '10px', width:'100px', height:'100px' }} />
                 </Grid>
                 <Grid item xs={3} display="flex" justifyContent="center" alignItems="center">
-                  <Typography variant="h6" component="h2">
+                  <Typography color="white" variant="h6" component="h2">
                     {randomSong.title}
                   </Typography>
                 </Grid>
                 <Grid item xs={4} display="flex" justifyContent="center" alignItems="center">
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" color="white">
                     {randomSong.artist}
                   </Typography>
                 </Grid>
                 <Grid item xs={2} display="flex" justifyContent="center" alignItems="center">
                   <CardActions>
                     <Button onClick={() => handlePlay(randomSong)} size="small">
-                      <PlayCircleOutlineIcon style={{ color: 'black' }} />
+                      <PlayCircleOutlineIcon style={{ color: 'white' }} />
                     </Button>
                   </CardActions>
                 </Grid>
@@ -80,6 +84,7 @@ function NewHit({ songs, onSongSelect }) {
         </Grid>
       )}
     </Grid>
+    </div>
   );
 };
 
