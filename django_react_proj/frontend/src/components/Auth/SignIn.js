@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { login } from "../../utilities/users-service";
+import { Box } from '@mui/material';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -37,38 +38,39 @@ class SignIn extends Component {
     const { credentials, error } = this.state;
 
     return (
+      <>
+        <div className="signin-container">
+          <div class="box1">
+            <span class="borderLine"></span>
+            <form onSubmit={this.handleSubmit}>
+              <h1>Log In</h1>
+              {error && <p>{error}</p>}
+              <div class="inputBox">
+                <input
+                  type="text"
+                  name="username"
+                  value={credentials.username}
+                  onChange={this.handleChange}
+                />
+                <span>Username</span>
+                <i></i>
+              </div>
+              <div class="inputBox">
+                <input
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={this.handleChange}
+                />
+                <span>Password</span>
+                <i></i>
+              </div>
 
-      <div className="signin-container">
-        <div class="box1">
-          <span class="borderLine"></span>
-          <form onSubmit={this.handleSubmit}>
-            <h1>Log In</h1>
-            {error && <p>{error}</p>}
-            <div class="inputBox">
-              <input
-                type="text"
-                name="username"
-                value={credentials.username}
-                onChange={this.handleChange}
-              />
-              <span>Username</span>
-              <i></i>
-            </div>
-            <div class="inputBox">
-              <input
-                type="password"
-                name="password"
-                value={credentials.password}
-                onChange={this.handleChange}
-              />
-              <span>Password</span>
-              <i></i>
-            </div>
-
-            <input type="Submit" value="Log In"></input>
-          </form>
+              <input type="Submit" value="Log In"></input>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
