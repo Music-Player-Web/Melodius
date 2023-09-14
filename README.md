@@ -50,16 +50,9 @@ I want to have a user-friendly admin panel where I can manage the music content 
 
 ![Screenshot (78)](https://github.com/Music-Player-Web/melodius/assets/140065051/b752c9ab-0ce1-454b-982e-af590ca407e2)
 
-***
-
 ![Screenshot (75)](https://github.com/Music-Player-Web/melodius/assets/140065051/65207127-3192-46ba-86ab-a45584a2b68b)
 
-***
-
 ![Screenshot (76)](https://github.com/Music-Player-Web/melodius/assets/140065051/0476e011-72f3-4d4a-b4d5-ff36cd8f325e)
-
-***
-
 
 ![Screenshot (77)](https://github.com/Music-Player-Web/melodius/assets/140065051/cfafe2c6-9c7b-4a2f-a974-9090145f715c)
 
