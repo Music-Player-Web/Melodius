@@ -15,13 +15,11 @@ I want to have a user-friendly admin panel where I can manage the music content 
 
 ## Technologies Used : 
 
-1. React
-2. JavaScript
-3. Django
-4. Python
-5. Axios 
-6. CSS
-7. Material UI
+1. React.js for Front-end
+2. Django.py for Back-end
+3. Axios 
+4. CSS
+5. Material UI
    
    
 ## Wireframes : 
