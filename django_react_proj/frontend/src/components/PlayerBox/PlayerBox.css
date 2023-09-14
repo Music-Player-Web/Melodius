@@ -1,23 +1,7 @@
+.playerBoxContainer {
+  width: 400px;
+  color: white;
+  background-color: #333333;
+  border-radius: 20px;
+}
 
-.MusicPlayerContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: grey;
-    min-height: 50vh;
-    color: white;
-    font-size: calc(10px + 2vmin);
-    margin-top: 10px;
-    border-radius: 20px;
-  }
-  
-  .MusicPlayerContainer h2 {
-    color: #61dafb;
-  }
-  
-  
-  .album-cover {
-    width: 300px; /* Adjust as needed */
-    height: 300px; /* Adjust as needed */
-  }
