@@ -23,22 +23,22 @@ from users import urls as user_urls
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')), 
+ path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    re_path(r'^api/usersq/(\d+)/$', views.users_detail),
     re_path(r'^api/usersq/$', views.users_list),
-    re_path(r'^api/usersq/([0-9])$', views.users_detail),
     re_path(r'^api/songs/$', views.songs_list),
     re_path(r'^api/albums/$', views.albums_list),
-    re_path(r'^api/albums/([0-9])$', views.album_detail ),
-    re_path(r'^api/albums/([0-9])/songs$', views.songs_list_from_album),
+    re_path(r'^api/albums/(\d+)/$', views.album_detail),
+    re_path(r'^api/albums/(\d+)/songs/$', views.songs_list_from_album),
     re_path(r'^api/artists/$', views.artists_list),
-    re_path(r'^api/artists/([0-9])$', views.artist_detail ),
-    re_path(r'^api/artists/([0-9])/songs$', views.songs_list_from_artist),
+    re_path(r'^api/artists/(\d+)/$', views.artist_detail),
+    re_path(r'^api/artists/(\d+)/songs/$', views.songs_list_from_artist),
     re_path(r'^api/genres/$', views.genres_list),
-    re_path(r'^api/genres/([0-9])$', views.genre_detail ),
-    re_path(r'^api/genres/([0-9])/songs$', views.songs_list_from_genre),
+    re_path(r'^api/genres/(\d+)/$', views.genre_detail),
+    re_path(r'^api/genres/(\d+)/songs/$', views.songs_list_from_genre),
     re_path(r'^api/playlists/$', views.play_list),
-    re_path(r'^api/playlists/([0-9])$', views.playlist_detail ),
+    re_path(r'^api/playlists/(\d+)/$', views.playlist_detail),
     
 
     # Token Authentication
