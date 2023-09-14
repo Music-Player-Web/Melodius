@@ -48,13 +48,15 @@ I want to have a user-friendly admin panel where I can manage the music content 
    
 ## Screenshots of the Website :
 
-![Screenshot (78)](https://github.com/Music-Player-Web/melodius/assets/140065051/b752c9ab-0ce1-454b-982e-af590ca407e2)
+![Screenshot (79)](https://github.com/Music-Player-Web/melodius/assets/140065051/9402c377-ee6c-4885-9c42-19f3ef822486)
 
-![Screenshot (75)](https://github.com/Music-Player-Web/melodius/assets/140065051/65207127-3192-46ba-86ab-a45584a2b68b)
+![Screenshot (80)](https://github.com/Music-Player-Web/melodius/assets/140065051/6fb24eb4-c66c-4464-8bd9-e5e07e0fb75d)
 
-![Screenshot (76)](https://github.com/Music-Player-Web/melodius/assets/140065051/0476e011-72f3-4d4a-b4d5-ff36cd8f325e)
+![Screenshot (81)](https://github.com/Music-Player-Web/melodius/assets/140065051/2e6afbc4-8d38-47b4-821f-cca3e9332a0c)
 
-![Screenshot (77)](https://github.com/Music-Player-Web/melodius/assets/140065051/cfafe2c6-9c7b-4a2f-a974-9090145f715c)
+![Screenshot (82)](https://github.com/Music-Player-Web/melodius/assets/140065051/5afa908b-ab4b-4f58-8d2c-0e62327fec9f)
+
+![Screenshot (83)](https://github.com/Music-Player-Web/melodius/assets/140065051/635360ac-7b29-4b19-8a34-d04d95b54561)
 
 ## Future Works : 
 
