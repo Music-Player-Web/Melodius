@@ -1,117 +1,55 @@
 import React, { Component } from "react";
 import * as MUI from "@mui/material";
 import axios from "axios";
-import TopSongsList from "../../components/TopSongsList";
+import TopArtist from "../../components/TopArtists";
+import NewHit from "../../components/NewHit";
+import RecommendedSongs from "../../components/RecommendedSongs";
+import PlayerBox from "../../components/PlayerBox/PlayerBox";
 
 class Discover extends Component {
   state = {
-    data: {
-      newHit: {
-        title: "It's Yours",
-        artist: "Artist Name",
-        image: "https://via.placeholder.com/150"
-      },
-      topArtists: [
-        { name: "Isabel LaRosa", image: "https://via.placeholder.com/150" },
-        { name: "Mr.Kitty", image: "https://via.placeholder.com/150" },
-        { name: "Stephan Sanchez", image: "https://via.placeholder.com/150" }
-      ],
-      recommendedTracks: [
-        { name: "Track 1", image: "https://via.placeholder.com/150" }
-        // Add more tracks as needed
-      ]
-    },
-    songs: []
+    songs: [],
+    artists: [],
+    currentSong: null,
   };
 
-  // fetching process
+  handlePlay = (song) => {
+    this.props.onSongSelect(song);
+    this.setState({ currentSong: song });
+  };
+
+  // Fetching process
 
   componentDidMount() {
     this.resetState();
   }
 
   getSongs = () => {
-    axios
-      .get("http://localhost:8000/api/songs/")
-      .then(res => {
-        const songsWithArtistNames = res.data.map(song => {
-          // Fetch the artist details for each song
-          const artistId = song.artist;
-          axios
-            .get(`http://localhost:8000/api/artists/${artistId}`)
-            .then(response => {
-              // Replace the artist foreign key with the artist's name
-              const artistName = response.data.name;
-              song.artist = artistName;
-              // Update the state with the modified song
-              this.setState(prevState => ({
-                songs: [...prevState.songs, song]
-              }));
-            })
-            .catch(error => console.error(error));
-          return null;
-        });
-        Promise.all(songsWithArtistNames); // Wait for all artist details to be fetched
-      })
-      .catch(error => console.error(error));
+    axios.get("http://localhost:8000/api/songs/").then((res) => this.setState({ songs: res.data }));
+  };
+
+  getArtists = () => {
+    axios.get("http://localhost:8000/api/artists/").then((res) => this.setState({ artists: res.data }));
   };
 
   resetState = () => {
     this.getSongs();
+    this.getArtists();
   };
 
+  handleSongSelect = (song) => {
+    this.setState({ currentSong: song });
+  };
 
   render() {
-    const { data } = this.state;
+    const { songs, artists, currentSong } = this.state;
 
     return (
       <MUI.Container style={{ marginTop: "100px" }}>
-        <MUI.Grid container>
-          <MUI.Grid xs={12}>
-            <div className="jumbotron"></div>
-            <h2>NEW HIT</h2>
-            <div style={{ width: "30%", textAlign: "center" }}>
-              <img
-                src={data.newHit.image}
-                alt={data.newHit.title}
-                style={{ width: "50%" }}
-              />
-              <p>{data.newHit.title}</p>
-              <p>{data.newHit.artist}</p>
-            </div>
-          </MUI.Grid>
-          <MUI.Grid xs={12}>
-          <TopSongsList songs={this.state.songs}
-          resetState={this.resetState} />
-          </MUI.Grid>
-
-          <MUI.Grid xs={12}>
-            <h2>RECOMMENDED TRACKS</h2>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexWrap: "wrap"
-              }}
-            >
-              {data.recommendedTracks.map((track, index) => {
-                console.log(index) 
-                return (
-                <div
-                  key={index}
-                  style={{ width: "30%", textAlign: "center" }}
-                >
-                  <img
-                    src={track.image}
-                    alt={track.name}
-                    style={{ width: "50%" }}
-                  />
-                  <p>{track.name}</p>
-                </div>
-              )})}
-            </div>
-          </MUI.Grid>
-        </MUI.Grid>
+        <PlayerBox songs={songs} currentSong={currentSong} />
+        <NewHit songs={songs} onSongSelect={this.handleSongSelect} resetState={this.resetState} />
+        <TopArtist artists={artists} resetState={this.resetState} />
+        <RecommendedSongs songs={songs} onSongSelect={this.handleSongSelect} resetState={this.resetState} />
       </MUI.Container>
     );
   }
