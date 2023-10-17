@@ -1,66 +1,90 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, TextField, FormControl, FormLabel } from "@mui/material";
 import axiosInstance from "axios";
 
-class EditPlayListForm extends React.Component {
-  state = {
-    pk: 0,
-    name: "",
-    user: this.props.user.id,
-  };
+const EditPlayListForm = ({ user, playlist }) => {
+  const [pk, setPk] = useState(0);
+  const [name, setName] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
-  componentDidMount() {
-    if (this.props.playlist) {
-      const { pk, name } = this.props.playlist;
-      this.setState({ pk, name });
+  useEffect(() => {
+    if (playlist) {
+      const { pk, name, image_url } = playlist;
+      setPk(pk);
+      setName(name);
+      setImageURL(image_url);
     }
-  }
+  }, [playlist]);
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  const handleImageChange = (e) => {
+    setImageURL(e.target.files[0]);
   };
 
-  updatePlaylist = async (e) => {
+  const handlePlaylistUpdate = () => {
+    window.location.reload();
+  };
+
+  const updatePlaylist = async (e) => {
     e.preventDefault();
 
-    const { pk, name, user } = this.state;
-
-    const updatedPlaylist = {
-      pk,
-      name,
-      user,
-    };
+    let form_data = new FormData();
+    form_data.append("name", name);
+    if (imageURL) {
+      form_data.append("image_url", imageURL);
+    }
+    form_data.append("user", user.id);
 
     try {
-      await axiosInstance.put(`http://localhost:8000/api/playlists/${pk}`, updatedPlaylist);
+      const response = await axiosInstance.put(
+        `http://localhost:8000/api/playlists/${pk}/`,
+        form_data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       // TODO: Handle success
+      console.log(response.data);
     } catch (error) {
       // TODO: Handle error
+      console.error(error);
     }
   };
 
-  defaultIfEmpty = (value) => {
+  const defaultIfEmpty = (value) => {
     return value === "" ? "" : value;
   };
 
-  render() {
-    return (
-      <form onSubmit={this.updatePlaylist}>
-        <FormControl>
-          <FormLabel>Playlist Name</FormLabel>
-          <TextField
-            name="name"
-            onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.name)}
-          />
-        </FormControl>
-        <input type="hidden" name="user" value={this.state.user} />
-        <Button type="submit" variant="contained" color="primary">
-          Update
-        </Button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={updatePlaylist}>
+      <FormControl>
+        <FormLabel>Playlist Name</FormLabel>
+        <TextField
+          name="name"
+          onChange={(e) => setName(e.target.value)}
+          value={defaultIfEmpty(name)}
+        />
+      </FormControl>
+      <FormControl>
+        <FormLabel>Image</FormLabel>
+        <input
+          type="file"
+          name="image_url"
+          onChange={handleImageChange}
+        />
+      </FormControl>
+      <input type="hidden" name="user" value={user.id} />
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        onClick={handlePlaylistUpdate}
+      >
+        Update
+      </Button>
+    </form>
+  );
+};
 
 export default EditPlayListForm;
